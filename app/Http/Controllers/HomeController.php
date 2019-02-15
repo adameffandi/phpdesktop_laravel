@@ -58,7 +58,7 @@ class HomeController extends Controller
     {
       $validator = Validator::make($request->all(), [
           'name' => 'required|max:255',
-          'email' => 'required|email|max:255|unique:users',
+          'email' => 'required|email|max:255',
       ]);
 
       if ($validator->fails()) {
@@ -67,8 +67,8 @@ class HomeController extends Controller
 
       $user = User::find($id);
       if (isset($user)) {
-        $user->name = $request->user_name;
-        $user->email = $request->user_email;
+        $user->name = $request->name;
+        $user->email = $request->email;
         $user->save();
         Session::flash('success', 'User information successfully updated!');
       } else {

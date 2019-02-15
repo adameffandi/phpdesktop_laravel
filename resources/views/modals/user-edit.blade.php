@@ -12,12 +12,12 @@
         {{csrf_field()}}
         <div class="modal-body">
           <div class="form-group">
-            <label for="user_name">Name</label>
-            <input type="text" class="form-control" name="user_name" id="user_name" value="{{$user->name}}">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{$user->name}}">
           </div>
           <div class="form-group">
-            <label for="user_email">Email address</label>
-            <input type="email" class="form-control" name="user_email" id="user_email" value="{{$user->email}}">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" name="email" id="email" value="{{$user->email}}">
           </div>
         </div>
         <div class="modal-footer">
