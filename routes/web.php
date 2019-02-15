@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PublicController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['prefix' => 'home'], function () {
+  Route::get('/', 'HomeController@index')->name('home');
+  Route::post('/home/user/create', 'HomeController@createUser')->name('user.create');
+  Route::post('/home/user/edit/{id}', 'HomeController@editUser')->name('user.edit');
+  Route::post('/home/user/delete/{id}', 'HomeController@deleteUser')->name('user.delete');
+});
