@@ -48,6 +48,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                        @if (!Auth::guest())
+                          @if (Auth::user()->role_id == 1)
+                            <li><a href="{{ route('home') }}">Home</a></li>
+                            <li><a href="{{ route('home.blog') }}">Blogs</a></li>
+                            <li><a href="{{ route('home.comment') }}">Comments</a></li>
+                          @endif
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

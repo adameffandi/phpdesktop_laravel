@@ -91,8 +91,7 @@
                   You are logged in!
               </div>
           </div> -->
-        </div>
-
-    </div> <!-- end col -->
+        </div><!-- end col -->
+    </div>
 </div>
 @endsection

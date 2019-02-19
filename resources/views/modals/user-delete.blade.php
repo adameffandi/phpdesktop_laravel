@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <form class="" action="{{route('user.delete', $user->id)}}" method="post">
+        <form class="" action="{{route('home.user.delete', $user->id)}}" method="post">
           {{csrf_field()}}
           <button type="submit" class="btn btn-danger">Yes, delete user</button>
         </form>

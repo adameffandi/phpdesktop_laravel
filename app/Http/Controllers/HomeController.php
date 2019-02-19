@@ -26,10 +26,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $users = User::all();
-        return view('home', compact('users'));
+        return view('admin.home', compact('users'));
+    }
+
+    public function getUser()
+    {
+        $users = User::all();
+        return view('admin.home', compact('users'));
     }
 
     public function createUser(Request $request)
@@ -86,6 +93,46 @@ class HomeController extends Controller
       } else {
         Session::flash('fail', 'User could not be deleted');
       }
+      return redirect()->route('home');
+    }
+
+    public function getBlog()
+    {
+      return view('admin.home', compact('users'));
+    }
+
+    public function createBlog(Request $request)
+    {
+      return redirect()->route('home');
+    }
+
+    public function editBlog(Request $request, $id)
+    {
+      return redirect()->route('home');
+    }
+
+    public function deleteBlog(Request $request, $id)
+    {
+      return redirect()->route('home');
+    }
+
+    public function getComment()
+    {
+      return view('admin.home', compact('users'));
+    }
+
+    public function createComment(Request $request)
+    {
+      return redirect()->route('home');
+    }
+
+    public function editComment(Request $request, $id)
+    {
+      return redirect()->route('home');
+    }
+
+    public function deleteComment(Request $request, $id)
+    {
       return redirect()->route('home');
     }
 }
