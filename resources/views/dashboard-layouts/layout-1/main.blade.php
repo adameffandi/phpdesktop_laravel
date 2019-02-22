@@ -11,9 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/sidebar.css" rel="stylesheet">
+    <link href="{{asset('/css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/sidebar.css')}}" rel="stylesheet">
 
     <!-- fontawesome cdn -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -31,7 +31,7 @@
       @include('dashboard-layouts.layout-1.sidebar')
 
       <div id="main">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <span id="burger-icon" onclick="openNav()">&#9776;</span>
         @yield('content')
       </div>
 
@@ -49,7 +49,10 @@
 
     <script type="text/javascript">
       $(document).ready(function () {
+         //hover text
         $('[data-toggle="tooltip"]').tooltip();
+         //redirect to specific tab
+        $('#{{ old('tabMenu') }} a[href="#{{ old('tab') }}"]').tab('show');
       });
     </script>
 

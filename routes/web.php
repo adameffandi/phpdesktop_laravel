@@ -11,25 +11,40 @@
 |
 */
 
-Route::get('/', 'PublicController@index');
+Route::get('/', 'PublicController@index')->name('landing');
 
 Auth::routes();
 
+// ===============================================================================================
+// ================================= ADMON =======================================================
+// ===============================================================================================
+
 Route::group(['prefix' => 'home'], function () {
   Route::get('/', 'HomeController@index')->name('home');
+  // ================================= user =================================
   Route::get('/user', 'HomeController@getUser')->name('home.user');
   Route::post('/user/create', 'HomeController@createUser')->name('home.user.create');
   Route::post('/user/edit/{id}', 'HomeController@editUser')->name('home.user.edit');
   Route::post('/user/delete/{id}', 'HomeController@deleteUser')->name('home.user.delete');
-  Route::get('/blog', 'HomeController@getBlog')->name('home.blog');
+  // ================================= blog =================================
+  Route::get('/blog', 'HomeController@getBlog')->name('home.blog'); // for blog, category and comment
   Route::post('/blog/create', 'HomeController@createBlog')->name('home.blog.create');
   Route::post('/blog/edit/{id}', 'HomeController@editBlog')->name('home.blog.edit');
   Route::post('/blog/delete/{id}', 'HomeController@deleteBlog')->name('home.blog.delete');
-  Route::get('/comment', 'HomeController@getComment')->name('home.comment');
+  // ================================= category =================================
+  Route::post('/category/create', 'HomeController@createCategory')->name('home.category.create');
+  Route::post('/category/edit/{id}', 'HomeController@editCategory')->name('home.category.edit');
+  Route::post('/category/delete/{id}', 'HomeController@deleteCategory')->name('home.category.delete');
+  // ================================= comment =================================
+  // Route::get('/comment', 'HomeController@getComment')->name('home.comment');
   Route::post('/comment/create', 'HomeController@createComment')->name('home.comment.create');
   Route::post('/comment/edit/{id}', 'HomeController@editComment')->name('home.comment.edit');
   Route::post('/comment/delete/{id}', 'HomeController@deleteComment')->name('home.comment.delete');
 });
+
+// ===============================================================================================
+// ================================= USER ========================================================
+// ===============================================================================================
 
 Route::group(['prefix' => 'user'], function () {
   Route::get('/', 'UserController@index')->name('user');
