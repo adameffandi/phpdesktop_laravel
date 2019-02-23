@@ -15,13 +15,13 @@ class UserTableSeeder extends Seeder
            'name' => 'Adam',
            'role_id' => '1',
            'email' => 'adam@email.com',
-           'password' => Hash::make('12356'),
+           'password' => Hash::make(123456),
        ],
        [
            'name' => 'User',
            'role_id' => '2',
            'email' => 'user@email.com',
-           'password' => Hash::make('12356'),
+           'password' => Hash::make(123456),
        ]);
      }
 }
