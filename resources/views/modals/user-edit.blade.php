@@ -8,7 +8,7 @@
         </button>
       </div>
 
-      <form class="" action="{{route('user.edit', $user->id)}}" method="post">
+      <form class="" action="{{route('home.user.edit', $user->id)}}" method="post">
         {{csrf_field()}}
         <div class="modal-body">
           <div class="form-group">

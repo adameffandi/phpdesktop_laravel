@@ -8,6 +8,12 @@ use Session;
 use Auth;
 use DB;
 use App\Models\User;
+use App\Models\Role;
+use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\ContentStatus;
+use App\Models\HomepageTag;
 
 class HomeController extends Controller
 {
@@ -26,10 +32,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
+        return view('admin.home');
+    }
+
+    public function getUser()
+    {
         $users = User::all();
-        return view('home', compact('users'));
+        return view('admin.user-management', compact('users'));
     }
 
     public function createUser(Request $request)
@@ -41,7 +53,7 @@ class HomeController extends Controller
       ]);
 
       if ($validator->fails()) {
-          return redirect()->route('home')->withErrors($validator)->withInput();
+          return redirect()->route('home.user')->withErrors($validator)->withInput();
       }
 
       $user = new User;
@@ -51,7 +63,7 @@ class HomeController extends Controller
       $user->save();
 
       Session::flash('success', 'User successfully created!');
-      return redirect()->route('home');
+      return redirect()->route('home.user');
     }
 
     public function editUser(Request $request, $id)
@@ -62,7 +74,7 @@ class HomeController extends Controller
       ]);
 
       if ($validator->fails()) {
-          return redirect()->route('home')->withErrors($validator)->withInput();
+          return redirect()->route('home.user')->withErrors($validator)->withInput();
       }
 
       $user = User::find($id);
@@ -74,7 +86,7 @@ class HomeController extends Controller
       } else {
         Session::flash('fail', 'User information could not be updated!');
       }
-      return redirect()->route('home');
+      return redirect()->route('home.user');
     }
 
     public function deleteUser(Request $request, $id)
@@ -86,6 +98,69 @@ class HomeController extends Controller
       } else {
         Session::flash('fail', 'User could not be deleted');
       }
-      return redirect()->route('home');
+      return redirect()->route('home.user');
+    }
+
+    public function getBlog()
+    {
+      $blogs = Blog::all();
+      $comments = Comment::all();
+      $categories = Category::all();
+      $contentstatuses = ContentStatus::all();
+      $homepagetags = HomepageTag::all();
+
+      return view('admin.blog-management', compact('blogs', 'comments', 'categories', 'contentstatuses', 'homepagetags'));
+    }
+
+    public function createBlog(Request $request)
+    {
+      return redirect()->route('home.blog');
+    }
+
+    public function editBlog(Request $request, $id)
+    {
+      return redirect()->route('home.blog');
+    }
+
+    public function deleteBlog(Request $request, $id)
+    {
+      return redirect()->route('home.blog');
+    }
+
+    public function createCategory(Request $request)
+    {
+      return redirect()->route('home.blog')->withInput(['tabMenu'=>'blogMgtDashboardTabMenu', 'tab'=>'category-management']);
+    }
+
+    public function editCategory(Request $request, $id)
+    {
+      return redirect()->route('home.blog')->withInput(['tabMenu'=>'blogMgtDashboardTabMenu', 'tab'=>'category-management']);
+    }
+
+    public function deleteCategory(Request $request, $id)
+    {
+      return redirect()->route('home.blog')->withInput(['tabMenu'=>'blogMgtDashboardTabMenu', 'tab'=>'category-management']);
+    }
+
+    // public function getComment()
+    // {
+    //   $comments = Comment::all();
+    //
+    //   return view('admin.comment-management', compact('comments'));
+    // }
+
+    public function createComment(Request $request)
+    {
+      return redirect()->route('home.blog')->withInput(['tabMenu'=>'blogMgtDashboardTabMenu', 'tab'=>'comment-management']);
+    }
+
+    public function editComment(Request $request, $id)
+    {
+      return redirect()->route('home.blog')->withInput(['tabMenu'=>'blogMgtDashboardTabMenu', 'tab'=>'comment-management']);
+    }
+
+    public function deleteComment(Request $request, $id)
+    {
+      return redirect()->route('home.blog')->withInput(['tabMenu'=>'blogMgtDashboardTabMenu', 'tab'=>'comment-management']);
     }
 }

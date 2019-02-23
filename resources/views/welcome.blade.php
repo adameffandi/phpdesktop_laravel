@@ -1,95 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('landing-layouts.main')
 
-        <title>PHP Desktop</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    PHP Desktop
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+@section('content')
+  <div class="container">
+    <div class="landing-blogs page-section">
+      <div class="row blogs-lg">
+        <div class="col-lg-6 col-sm-12">
+          <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
         </div>
-    </body>
-</html>
+        <div class="col-lg-6 col-sm-12">
+          <div class="row blogs-md">
+            <div class="col-lg-12 col-sm-12">
+              <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+            </div>
+          </div>
+          <div class="row new-sm">
+            <div class="col-lg-6 col-sm-12">
+              <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+            </div>
+            <div class="col-lg-6 col-sm-12">
+              <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trending-blogs page-section">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="page-section-title">Trending</h2>
+          <br>
+          <div class="row trending-blogs-item">
+            <div class="col-md-6">
+              <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+            </div>
+            <div class="col-md-6">
+              <p class="category-text"><b> // Lifestyle </b></p>
+              <h4><a href="#" class="link-text">Lorem ipsum dolor sit amet</a></h4>
+              <hr>
+              <p class="grey-text"> <i class="fa fa-calendar"></i> <i>3 January 2019, 8 comments</i> </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <button type="button" class="btn btn-secondary">Read More <i class="fa fa-arrow-right"></i> </button>
+            </div>
+          </div>
+          <br>
+
+          <div class="row trending-blogs-item">
+            <div class="col-md-6">
+              <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+            </div>
+            <div class="col-md-6">
+              <p class="category-text"><b> // Lifestyle </b></p>
+              <h4><a href="#" class="link-text">Lorem ipsum dolor sit amet</a></h4>
+              <hr>
+              <p class="grey-text"> <i class="fa fa-calendar"></i> <i>3 January 2019, 8 comments</i> </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <button type="button" class="btn btn-secondary">Read More <i class="fa fa-arrow-right"></i> </button>
+            </div>
+          </div>
+          <br>
+
+          <div class="row trending-blogs-item">
+            <div class="col-md-6">
+              <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+            </div>
+            <div class="col-md-6">
+              <p class="category-text"><b> // Lifestyle </b></p>
+              <h4><a href="#" class="link-text">Lorem ipsum dolor sit amet</a></h4>
+              <hr>
+              <p class="grey-text"> <i class="fa fa-calendar"></i> <i>3 January 2019, 8 comments</i> </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <button type="button" class="btn btn-secondary">Read More <i class="fa fa-arrow-right"></i> </button>
+            </div>
+          </div>
+          <br>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="row sub-section">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <h2 class="page-section-title">Most Popular</h2>
+              <br>
+              <div class="row most-popular-blogs-item">
+                <div class="col-md-4">
+                  <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+                </div>
+                <div class="col-md-8">
+                  <h5><a href="#" class="link-text">Lorem ipsum dolor sit amet</a></h5>
+                  <p class="grey-text"> <i class="fa fa-calendar"></i> Jan 21, 2018</p>
+                </div>
+              </div>
+              <br>
+              <div class="row most-popular-blogs-item">
+                <div class="col-md-4">
+                  <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+                </div>
+                <div class="col-md-8">
+                  <h5><a href="#" class="link-text">Lorem ipsum dolor sit amet</a></h5>
+                  <p class="grey-text"> <i class="fa fa-calendar"></i> Jan 21, 2018</p>
+                </div>
+              </div>
+              <br>
+              <div class="row most-popular-blogs-item">
+                <div class="col-md-4">
+                  <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+                </div>
+                <div class="col-md-8">
+                  <h5><a href="#" class="link-text">Lorem ipsum dolor sit amet</a></h5>
+                  <p class="grey-text"> <i class="fa fa-calendar"></i> Jan 21, 2018</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row sub-section">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <h2 class="page-section-title">Categories</h2>
+              <br>
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 category-image">
+                  <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 category-image">
+                  <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 category-image">
+                  <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div> <!-- end container -->
+
+
+
+  {{-- <div class="latest-blogs page-section full-width-div">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="page-section-title-white text-center">Latest Blogs</h2>
+        </div>
+      </div>
+    </div> <!--ed container -->
+  </div> --}}
+@endsection

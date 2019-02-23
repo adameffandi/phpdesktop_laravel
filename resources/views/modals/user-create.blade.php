@@ -8,7 +8,7 @@
         </button>
       </div>
 
-      <form class="" action="{{route('user.create')}}" method="post">
+      <form class="" action="{{route('home.user.create')}}" method="post">
         {{csrf_field()}}
         <div class="modal-body">
           <div class="form-group">

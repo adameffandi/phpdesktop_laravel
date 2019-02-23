@@ -1,0 +1,116 @@
+body {
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.full-width-div {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.link-text {
+  text-decoration: none;
+  color: #444;
+}
+
+.link-text:hover {
+  text-decoration: none;
+  color: #ff7979;
+}
+
+.grey-text {
+  color: #aaaaaa;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+
+/* ===================== welcome page shits here ================================*/
+
+.category-text {
+  color: #ff7979;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.category-image {
+  margin: 0px 0px 20px 0px;
+  /* margin-bottom: 20px; */
+}
+
+.category-image img {
+  width: 100%;
+  height: 100px;
+}
+
+.page-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.sub-section {
+  margin: 20px 0px 20px 0px;
+}
+
+.page-section-title-white {
+  color: #eeeeee;
+}
+
+.blogs-md {
+  margin: 0px 0px 10px 0px;
+}
+
+.blogs-sm {
+  margin: 10px 0px 10px 0px;
+}
+
+img {
+  width: 100%;
+}
+
+.blogs-md img {
+  height: 205px;
+}
+
+.trending-blogs-item {
+  margin-bottom: 20px;
+}
+
+.latest-blogs{
+  background-color: #333;
+}
+
+
+/* =============================navbar shit here ================================*/
+.navbar-custom {
+  background-color: #333;
+  position: absolute;
+  height: 100px;
+}
+
+.navbar-brand {
+  color: #fff;
+}
+
+.navbar-brand:hover {
+  color: #f368e0;
+}
+
+.topnav a {
+    color: #fff;
+}
+
+.topnav a:hover {
+    color: #f368e0;
+    border-bottom: 3px solid #feca57;
+}
