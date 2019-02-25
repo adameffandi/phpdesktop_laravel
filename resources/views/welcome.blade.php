@@ -87,6 +87,11 @@
             <div class="col-sm-12 col-md-12 col-lg-12">
               <h2 class="page-section-title">Most Popular</h2>
               <br>
+              {{-- @foreach ($blogs as $blog)
+                @if ($blog->homepage_tag_id == 3)
+
+                @endif
+              @endforeach --}}
               <div class="row most-popular-blogs-item">
                 <div class="col-md-4">
                   <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
@@ -123,21 +128,13 @@
             <div class="col-sm-12 col-md-12 col-lg-12">
               <h2 class="page-section-title">Categories</h2>
               <br>
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12 category-image">
-                  <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+              @foreach ($categories as $category)
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-12 category-image">
+                    <img class="img-responsive" src="{{ asset($category->media->media_location) }}" alt="">
+                  </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12 category-image">
-                  <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12 category-image">
-                  <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
-                </div>
-              </div>
+              @endforeach
             </div>
           </div>
 

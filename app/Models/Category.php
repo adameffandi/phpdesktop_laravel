@@ -10,6 +10,11 @@ class Category extends Model
 
     public function blog()
     {
-        return $this->hasMany('App\Blog');
+        return $this->hasMany('App\Models\Blog');
+    }
+
+    public function media()
+    {
+        return $this->belongsTo('App\Models\Media', 'media_id');
     }
 }

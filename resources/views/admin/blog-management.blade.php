@@ -51,14 +51,14 @@
                     <tr>
                       <td></td>
                       <td>{{$blog->title}}</td>
-                      <td>{{$blog->content}}</td>
+                      <td>{{substr($blog->content, 0, 50) . "..."}}</td>
                       <td>{{$blog->category->category_name}}</td>
                       <td>{{$blog->homepagetag->homepage_tag_name}}</td>
                       <td>{{$blog->content_status->status}}</td>
                       <td>{{$blog->user->name}}</td>
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          {{-- <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#blog-view-{{$blog->id}}"><i class="fas fa-eye"></i></button> --}}
+                          <button type="button" class="btn btn-info btn-action" data-toggle="modal" data-target="#blog-view-{{$blog->id}}"><i class="fas fa-eye"></i></button>
                           <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#blog-edit-{{$blog->id}}"><i class="fas fa-pencil-alt"></i></button>
                           <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#blog-delete-{{$blog->id}}"><i class="fas fa-times"></i></button>
                         </div>
@@ -94,7 +94,11 @@
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
                           <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#category-edit-{{$category->id}}"><i class="fas fa-pencil-alt"></i></button>
-                          <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#category-delete-{{$category->id}}"><i class="fas fa-times"></i></button>
+                          @if ($category->id != 1 && $category->id != 2)
+                            <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#category-delete-{{$category->id}}"><i class="fas fa-times"></i></button>
+                          @else
+                            <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#category-delete-{{$category->id}}" disabled><i class="fas fa-times"></i></button>
+                          @endif
                         </div>
 
                         @include('modals.category-edit')

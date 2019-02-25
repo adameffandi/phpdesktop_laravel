@@ -12,6 +12,46 @@ body {
   cursor:pointer;
 }
 
+.grey-text {
+  color: #aaaaaa;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.category-text {
+  color: #ff7979;
+  font-weight: bolder;
+  padding: 10px 0px 10px 10px;
+}
+
+.status-text-blue {
+  color: #54a0ff;
+  font-weight: bolder;
+  padding: 10px 10px 10px 0px;
+}
+
+.status-text-orange {
+  color: #ff9f43;
+  font-weight: bolder;
+  padding: 10px 10px 10px 0px;
+}
+
+.status-text-red {
+  color: #ff7979;
+  font-weight: bolder;
+  padding: 10px 10px 10px 0px;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
 .content-body {
   padding: 10px 40px 10px 40px;
 }

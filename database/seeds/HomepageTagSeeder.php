@@ -13,6 +13,9 @@ class HomepageTagSeeder extends Seeder
      {
        DB::table('homepage_tags')->insert([
          [
+             'homepage_tag_name' => 'None',
+         ],
+         [
              'homepage_tag_name' => 'Trending',
          ],
          [

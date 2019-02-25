@@ -10,6 +10,6 @@ class ContentStatus extends Model
 
     public function blog()
     {
-        return $this->hasMany('App\Blog');
+        return $this->hasMany('App\Models\Blog');
     }
 }

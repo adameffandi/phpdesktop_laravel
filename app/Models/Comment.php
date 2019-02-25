@@ -10,11 +10,11 @@ class Comment extends Model
 
     public function blog()
     {
-        return $this->belongsTo('App\Blog', 'blog_id');
+        return $this->belongsTo('App\Models\Blog', 'blog_id');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 }

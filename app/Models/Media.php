@@ -10,11 +10,16 @@ class Media extends Model
 
   public function user()
   {
-      return $this->belongsTo('App\User', 'uploader_id');
+      return $this->belongsTo('App\Models\User', 'uploader_id');
   }
 
   public function blog()
   {
-      return $this->hasMany('App\Media');
+      return $this->hasMany('App\Models\Media');
+  }
+
+  public function category()
+  {
+      return $this->hasMany('App\Models\Media');
   }
 }
