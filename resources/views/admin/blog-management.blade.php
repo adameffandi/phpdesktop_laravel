@@ -35,7 +35,7 @@
                 </button>
                 @include('modals.blog-create')
 
-                <table class="table table-responsive">
+                <table class="table table-responsive" id="blogMgtTable">
                   <thead>
                     <th>No.</th>
                     <th>Title</th>
@@ -56,7 +56,7 @@
                       <td>{{$blog->homepagetag->homepage_tag_name}}</td>
                       <td>{{$blog->content_status->status}}</td>
                       <td>{{$blog->user->name}}</td>
-                      <td>
+                      <td style="width: 150px;">
                         <div class="btn-group" role="group" aria-label="Basic example">
                           <button type="button" class="btn btn-info btn-action" data-toggle="modal" data-target="#blog-view-{{$blog->id}}"><i class="fas fa-eye"></i></button>
                           <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#blog-edit-{{$blog->id}}"><i class="fas fa-pencil-alt"></i></button>
@@ -80,7 +80,7 @@
                 </button>
                 @include('modals.category-create')
 
-                <table class="table table-responsive">
+                <table class="table table-responsive" id="categoryMgtTable">
                   <thead>
                     <th>No.</th>
                     <th>Category</th>

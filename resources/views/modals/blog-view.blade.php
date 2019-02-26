@@ -24,7 +24,9 @@
           </div>
         </div>
         <div class="blog-image">
-          <img class="img-responsive" src="{{ asset('/img/image-placeholder.png') }}" alt="">
+          @if (isset($blog->media_id))
+            <img class="img-responsive" src="{{ asset($blog->media->media_location) }}" alt="">
+          @endif
         </div>
         <br>
         <div class="blog-content">

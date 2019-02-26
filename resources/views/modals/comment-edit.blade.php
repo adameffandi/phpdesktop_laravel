@@ -13,7 +13,7 @@
         <div class="modal-body">
           {{-- <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Uvuvwevwevwe Onyetenyevwe Ugwemubwem Ossas">
+            <input type="text" class="form-control" name="name" placeholder="Uvuvwevwevwe Onyetenyevwe Ugwemubwem Ossas">
           </div> --}}
         </div>
         <div class="modal-footer">

@@ -21,7 +21,7 @@
           </div>
           <div class="form-group">
             <label for="media">Image</label>
-            <input type="file" class="form-control" name="media" required>
+            <input type="file" class="form-control" name="media">
           </div>
           <div class="form-group">
             <label for="blog_category">Category</label>

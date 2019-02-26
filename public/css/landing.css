@@ -30,8 +30,115 @@ body {
   margin-bottom: 2px;
 }
 
+/*=============================================================================
+                          navbar shit here
+  ==============================================================================*/
+.navbar-custom {
+  background-color: #333;
+  position: absolute;
+  height: 100px;
+}
+
+.navbar-brand {
+  color: #fff;
+}
+
+.navbar-brand:hover {
+  color: #d17c78;
+}
+
+.topnav a {
+    color: #fff;
+}
+
+.topnav a:hover {
+    color: #d17c78;
+    border-bottom: 3px solid #d17c78;
+}
 
 /* ===================== welcome page shits here ================================*/
+.page-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.sub-section {
+  margin: 20px 0px 20px 0px;
+}
+
+.page-section-title-white {
+  color: #eeeeee;
+}
+
+/* .blogs-sm {
+  margin: 10px 0px 10px 0px;
+} */
+
+.new-sm-1 {
+  margin-bottom: 20px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  /* max-width: 100%; */
+  /* height: auto; */
+}
+
+/*=============================================================================
+                          Landing blogs Section
+  ==============================================================================*/
+.landing-blog-title-category-lg {
+  position: absolute;
+  bottom: 0;
+  left: 10;
+  padding: 10px 0px 10px 20px;
+  color: #fff;
+  background-color: rgba(68, 68, 68, 0.75);
+  width: 95%;
+}
+
+.landing-blog-category-lg{
+  width: 35%;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  padding: 5px 10px 5px 0px;
+  color: #d17c78;
+  font-weight: bolder;
+}
+
+.landing-blog-title-category {
+  position: absolute;
+  bottom: 0;
+  left: 10;
+  padding: 10px 0px 10px 20px;
+  color: #fff;
+  background-color: rgba(68, 68, 68, 0.75);
+  width: 90%;
+}
+
+.landing-blog-category{
+  width: 40%;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  padding: 5px 10px 5px 0px;
+  color: #d17c78;
+  font-weight: bolder;
+}
+
+.trending-blogs-item {
+  margin-bottom: 20px;
+}
+
+.latest-blogs{
+  background-color: #333;
+}
+
+/*=============================================================================
+                          Landing category Section
+  ==============================================================================*/
 
 .category-text {
   color: #ff7979;
@@ -51,66 +158,41 @@ body {
   height: 100px;
 }
 
-.page-section {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.sub-section {
-  margin: 20px 0px 20px 0px;
-}
-
-.page-section-title-white {
-  color: #eeeeee;
-}
-
-.blogs-md {
-  margin: 0px 0px 10px 0px;
-}
-
-.blogs-sm {
-  margin: 10px 0px 10px 0px;
-}
-
-img {
+.category-image {
+  height: 100%;
   width: 100%;
+  position: relative;
 }
 
-.blogs-md img {
-  height: 205px;
-}
-
-.trending-blogs-item {
-  margin-bottom: 20px;
-}
-
-.latest-blogs{
-  background-color: #333;
-}
-
-
-/* =============================navbar shit here ================================*/
-.navbar-custom {
-  background-color: #333;
+.category-name {
   position: absolute;
-  height: 100px;
+  top: 50%;  /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
+  color: #333;
+  background: #fff;
+  padding: 5px 15px 5px 15px;
 }
 
-.navbar-brand {
-  color: #fff;
+.img-tint {
+  position: relative;
+  float: left;
+  /* margin-right: 20px; */
+  /* margin-bottom: 20px; */
+  cursor: pointer;
+  box-shadow: rgba(124, 124, 124, 0.5) 3px 5px 5px;
 }
 
-.navbar-brand:hover {
-  color: #f368e0;
+.img-tint:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(209, 124, 120, 0.5);
+  transition: all .3s linear;
 }
 
-.topnav a {
-    color: #fff;
-}
-
-.topnav a:hover {
-    color: #f368e0;
-    border-bottom: 3px solid #feca57;
-}
+.img-tint:hover:before { background: none; }

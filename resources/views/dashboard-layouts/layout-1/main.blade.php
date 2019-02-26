@@ -38,14 +38,21 @@
     </div>
 
     <!-- Scripts -->
+    <!-- jquery -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous">
     </script>
+    <!-- datatable -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
-    <script src="/js/app.js"></script>
-    <script src="/js/sidebar.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+    <!-- custom -->
+    <script src="{{asset('/js/app.js')}}"></script>
+    <script src="{{asset('/js/sidebar.js')}}"></script>
+    <script src="{{asset('/js/custom.js')}}"></script>
 
     <script type="text/javascript">
       $(document).ready(function () {
@@ -53,6 +60,10 @@
         $('[data-toggle="tooltip"]').tooltip();
          //redirect to specific tab
         $('#{{ old('tabMenu') }} a[href="#{{ old('tab') }}"]').tab('show');
+
+        $('#userMgtTable').DataTable();
+        $('#blogMgtTable').DataTable();
+        $('#categoryMgtTable').DataTable();
       });
     </script>
 

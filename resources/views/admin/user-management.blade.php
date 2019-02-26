@@ -36,7 +36,7 @@
                 </button>
                 @include('modals.user-create')
 
-                <table class="table table-responsive">
+                <table class="table table-responsive" id="userMgtTable">
                   <thead>
                     <th>No.</th>
                     <th>Name</th>

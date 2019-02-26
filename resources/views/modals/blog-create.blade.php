@@ -13,7 +13,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="blog_title">Title</label>
-            <input type="text" class="form-control" name="blog_title" id="blog_title" required>
+            <input type="text" class="form-control" name="blog_title" required>
           </div>
           <div class="form-group">
             <label for="blog_content">Content</label>

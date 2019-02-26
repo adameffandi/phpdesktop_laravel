@@ -13,19 +13,19 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Uvuvwevwevwe Onyetenyevwe Ugwemubwem Ossas">
+            <input type="text" class="form-control" name="name" placeholder="Uvuvwevwevwe Onyetenyevwe Ugwemubwem Ossas">
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="user@email.com">
+            <input type="email" class="form-control" name="email" placeholder="user@email.com">
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="password">
+            <input type="password" class="form-control" name="password">
           </div>
           <div class="form-group">
             <label for="password_confirmation">Confirm Password</label>
-            <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
+            <input type="password" class="form-control" name="password_confirmation">
           </div>
         </div>
         <div class="modal-footer">

@@ -13,11 +13,11 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" id="name" value="{{$user->name}}">
+            <input type="text" class="form-control" name="name" value="{{$user->name}}">
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" name="email" id="email" value="{{$user->email}}">
+            <input type="email" class="form-control" name="email" value="{{$user->email}}">
           </div>
         </div>
         <div class="modal-footer">

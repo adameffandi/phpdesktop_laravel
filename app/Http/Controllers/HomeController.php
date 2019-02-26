@@ -114,17 +114,19 @@ class HomeController extends Controller
 
     public function createBlog(Request $request)
     {
+      $media_id = app('App\Http\Controllers\MediaController')->saveBlogImage($request);
+
       $blog = new Blog;
       $blog->title = $request->blog_title;
       $blog->content = $request->blog_content;
-      $blog->media_id = null;
+      $blog->media_id = $media_id;
       $blog->user_id = Auth::id();
       $blog->category_id = $request->blog_category;
       $blog->homepage_tag_id = $request->blog_homepage_tag;
       $blog->content_status_id = $request->blog_content_status;
       $blog->save();
 
-      Session::flash('success', 'Blog successfully created!');
+      Session::flash('success', $blog->title. ' blog successfully created!');
       return redirect()->route('home.blog');
     }
 
@@ -133,14 +135,29 @@ class HomeController extends Controller
       $blog = Blog::find($id);
 
       if (isset($blog)) {
-        $blog->title = $request->blog_title;
-        $blog->content = $request->blog_content;
-        $blog->media_id = null;
-        $blog->category_id = $request->blog_category;
-        $blog->homepage_tag_id = $request->blog_homepage_tag;
-        $blog->content_status_id = $request->blog_content_status;
-        $blog->save();
-        Session::flash('success', 'Blog successfully updated!');
+        if ($request->media == null) {
+          $blog->title = $request->blog_title;
+          $blog->content = $request->blog_content;
+          $blog->category_id = $request->blog_category;
+          $blog->homepage_tag_id = $request->blog_homepage_tag;
+          $blog->content_status_id = $request->blog_content_status;
+          $blog->save();
+        } else {
+          //delete previous media
+          app('App\Http\Controllers\MediaController')->deleteImage($blog->media_id);
+          //save new media and get its id
+          $media_id = app('App\Http\Controllers\MediaController')->saveBlogImage($request);
+
+          $blog->title = $request->blog_title;
+          $blog->content = $request->blog_content;
+          $blog->media_id = $media_id;
+          $blog->category_id = $request->blog_category;
+          $blog->homepage_tag_id = $request->blog_homepage_tag;
+          $blog->content_status_id = $request->blog_content_status;
+          $blog->save();
+        }
+
+        Session::flash('success', $blog->title. ' blog successfully updated!');
       } else {
         Session::flash('fail', 'Fail to update blog');
       }
@@ -152,8 +169,9 @@ class HomeController extends Controller
       $blog = Blog::find($id);
 
       if (isset($blog)) {
+        app('App\Http\Controllers\MediaController')->deleteImage($blog->media_id);
         $blog->delete();
-        Session::flash('success', 'Blog successfully deleted!');
+        Session::flash('success', $blog->title. ' blog successfully deleted!');
       } else {
         Session::flash('success', 'Fail to delete blog');
       }
@@ -170,7 +188,7 @@ class HomeController extends Controller
       $category->media_id = $media_id;
       $category->save();
 
-      Session::flash('success', 'Category successfully created!');
+      Session::flash('success', $category->category_name. ' category successfully created!');
       return redirect()->route('home.blog')->withInput(['tabMenu'=>'blogMgtDashboardTabMenu', 'tab'=>'category-management']);
     }
 
@@ -184,10 +202,12 @@ class HomeController extends Controller
         //save new media and get its id
         $media_id = app('App\Http\Controllers\MediaController')->saveCategoryImage($request);
 
+        $old_category_name = $category->category_name;
+
         $category->category_name = $request->category;
         $category->media_id = $media_id;
         $category->save();
-        Session::flash('success', 'Category successfully edited!');
+        Session::flash('success', $old_category_name. ' category successfully edited to ' . $category->category_name . '!');
       } else {
         Session::flash('success', 'Fail to edit category');
       }
@@ -201,6 +221,7 @@ class HomeController extends Controller
       $blogs = Blog::all();
       $blog_affected = 0;
       $deleted_category = $category->category_name;
+      app('App\Http\Controllers\MediaController')->deleteImage($category->media_id);
 
       if (isset($category)) {
         foreach ($blogs as $blog) {
@@ -211,7 +232,7 @@ class HomeController extends Controller
           }
         }
         $category->delete();
-        Session::flash('success', 'Category successfully deleted! ' . $blog_affected . ' blog(s) with the category of ' . $deleted_category . ' are changed to Uncategorized.');
+        Session::flash('success', $deleted_category . ' category successfully deleted! ' . $blog_affected . ' blog(s) affected. Affected blog(s) are changed to Uncategorized.');
       } else {
         Session::flash('success', 'Fail to delete category');
       }

@@ -18,7 +18,7 @@
                       <label for="name" class="col-sm-12 col-md-12 control-label">Name</label>
 
                       <div class="col-sm-12 col-md-12">
-                          <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                          <input type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                           @if ($errors->has('name'))
                               <span class="help-block">
@@ -32,7 +32,7 @@
                       <label for="email" class="col-sm-12 col-md-12 control-label">E-Mail Address</label>
 
                       <div class="col-sm-12 col-md-12">
-                          <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                          <input type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                           @if ($errors->has('email'))
                               <span class="help-block">

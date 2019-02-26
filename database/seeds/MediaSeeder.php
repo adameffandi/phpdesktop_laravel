@@ -14,13 +14,13 @@ class MediaSeeder extends Seeder
        DB::table('medias')->insert([
          [
              'media_title' => 'Background 1',
-             'media_location' => 'img/bg-1.jpg',
+             'media_location' => 'img/categories/bg-1.jpg',
              'media_type' => '.jpg',
              'uploader_id' => 1,
          ],
          [
              'media_title' => 'Background 2',
-             'media_location' => 'img/bg-2.jpeg',
+             'media_location' => 'img/categories/bg-2.jpeg',
              'media_type' => '.jpeg',
              'uploader_id' => 1,
          ]
