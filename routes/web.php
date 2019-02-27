@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'PublicController@index')->name('landing');
+Route::post('userlogin', 'PublicController@userLogin')->name('user.login');
+Route::get('logout', 'PublicController@logout2')->name('logout2');
 
 Auth::routes();
 
@@ -19,7 +21,7 @@ Auth::routes();
 // ================================= ADMON =======================================================
 // ===============================================================================================
 
-Route::group(['prefix' => 'home'], function () {
+Route::group(["middleware" => "App\Http\Middleware\AdminMiddleware", 'prefix' => 'home'], function () {
   Route::get('/', 'HomeController@index')->name('home');
   // ================================= user =================================
   Route::get('/user', 'HomeController@getUser')->name('home.user');

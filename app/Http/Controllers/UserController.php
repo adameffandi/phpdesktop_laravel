@@ -24,61 +24,61 @@ class UserController extends Controller
 
    public function index()
    {
-       return view('home', compact('users'));
+       return view('user.home');
    }
 
    public function createProfile(Request $request)
    {
-     return redirect()->route('home');
+     return redirect()->route('user');
    }
 
    public function editProfile(Request $request, $id)
    {
-     return redirect()->route('home');
+     return redirect()->route('user');
    }
 
    public function deleteProfile(Request $request, $id)
    {
-     return redirect()->route('home');
+     return redirect()->route('user');
    }
 
    public function getBlog()
    {
-     return view('home', compact('users'));
+     return view('user.blog');
    }
 
    public function createBlog(Request $request)
    {
-     return redirect()->route('home');
+     return redirect()->route('user');
    }
 
    public function editBlog(Request $request, $id)
    {
-     return redirect()->route('home');
+     return redirect()->route('user');
    }
 
    public function deleteBlog(Request $request, $id)
    {
-     return redirect()->route('home');
+     return redirect()->route('user');
    }
 
    public function getComment()
    {
-     return view('home', compact('users'));
+     return view('user.comment');
    }
 
    public function createComment(Request $request)
    {
-     return redirect()->route('home');
+     return redirect()->route('user');
    }
 
    public function editComment(Request $request, $id)
    {
-     return redirect()->route('home');
+     return redirect()->route('user');
    }
 
    public function deleteComment(Request $request, $id)
    {
-     return redirect()->route('home');
+     return redirect()->route('user');
    }
 }

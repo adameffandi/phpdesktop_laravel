@@ -30,6 +30,11 @@ body {
   margin-bottom: 2px;
 }
 
+.message-section {
+  margin-top:20px;
+  margin-bottom:0px;
+}
+
 /*=============================================================================
                           navbar shit here
   ==============================================================================*/
@@ -58,7 +63,7 @@ body {
 
 /* ===================== welcome page shits here ================================*/
 .page-section {
-  padding-top: 30px;
+  padding-top: 10px;
   padding-bottom: 30px;
   margin-top: 50px;
   margin-bottom: 50px;

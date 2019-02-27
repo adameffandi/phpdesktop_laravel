@@ -9,6 +9,7 @@ use Auth;
 use DB;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Status;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Comment;
@@ -41,7 +42,9 @@ class HomeController extends Controller
     public function getUser()
     {
         $users = User::all();
-        return view('admin.user-management', compact('users'));
+        $roles = Role::all();
+        $statuses = Status::all();
+        return view('admin.user-management', compact('users', 'roles', 'statuses'));
     }
 
     public function createUser(Request $request)
@@ -60,6 +63,8 @@ class HomeController extends Controller
       $user->name = $request->name;
       $user->email = $request->email;
       $user->password = bcrypt($request->password);
+      $user->role_id = $request->role;
+      $user->status_id = $request->status;
       $user->save();
 
       Session::flash('success', 'User successfully created!');
@@ -81,6 +86,8 @@ class HomeController extends Controller
       if (isset($user)) {
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->role_id = $request->role;
+        $user->status_id = $request->status;
         $user->save();
         Session::flash('success', 'User information successfully updated!');
       } else {
@@ -114,7 +121,7 @@ class HomeController extends Controller
 
     public function createBlog(Request $request)
     {
-      $media_id = app('App\Http\Controllers\MediaController')->saveBlogImage($request);
+      $media_id = app('App\Http\Controllers\MediaController')->saveImage($request, 'blog');
 
       $blog = new Blog;
       $blog->title = $request->blog_title;
@@ -146,7 +153,7 @@ class HomeController extends Controller
           //delete previous media
           app('App\Http\Controllers\MediaController')->deleteImage($blog->media_id);
           //save new media and get its id
-          $media_id = app('App\Http\Controllers\MediaController')->saveBlogImage($request);
+          $media_id = app('App\Http\Controllers\MediaController')->saveImage($request, 'blog');
 
           $blog->title = $request->blog_title;
           $blog->content = $request->blog_content;
@@ -181,7 +188,7 @@ class HomeController extends Controller
 
     public function createCategory(Request $request)
     {
-      $media_id = app('App\Http\Controllers\MediaController')->saveCategoryImage($request);
+      $media_id = app('App\Http\Controllers\MediaController')->saveImage($request, 'category');
 
       $category = new Category;
       $category->category_name = $request->category;
@@ -200,7 +207,7 @@ class HomeController extends Controller
         //delete previous media
         app('App\Http\Controllers\MediaController')->deleteImage($category->media_id);
         //save new media and get its id
-        $media_id = app('App\Http\Controllers\MediaController')->saveCategoryImage($request);
+        $media_id = app('App\Http\Controllers\MediaController')->saveImage($request, 'category');
 
         $old_category_name = $category->category_name;
 

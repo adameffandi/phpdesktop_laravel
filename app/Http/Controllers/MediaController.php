@@ -9,12 +9,30 @@ use App\Models\Media;
 
 class MediaController extends Controller
 {
-    public function saveCategoryImage($request)
+    public function saveImage($request, $saveFor)
     {
       if ($request->media) {
         $image = $request->media;
-        $name = $request->category.'.'.$image->getClientOriginalExtension();
-        $destinationPath = 'img/categories/';
+        if ($saveFor == 'blog') {
+          $name = $this->cleanString($request->blog_title).'-'.date('Ymd_His').'.'.$image->getClientOriginalExtension();
+        } elseif ($saveFor == 'category') {
+          $name = $this->cleanString($request->category).'-'.date('Ymd_His').'.'.$image->getClientOriginalExtension();
+        } elseif ($saveFor == 'profile_picture') {
+          $name = $this->cleanString($request->profile_picture).'-'.date('Ymd_His').'.'.$image->getClientOriginalExtension();
+        } else {
+          $name = date('Ymd_His').'.'.$image->getClientOriginalExtension();
+        }
+
+        if ($saveFor == 'blog') {
+          $destinationPath = 'img/blogs/';
+        } elseif ($saveFor == 'category') {
+          $destinationPath = 'img/categories/';
+        } elseif ($saveFor == 'profile_picture') {
+          $destinationPath = 'img/profile_pictures/';
+        } else {
+          $destinationPath = 'img/';
+        }
+
         $image->move($destinationPath, $name);
         $image_location_and_name = $destinationPath.$name;
 
@@ -32,42 +50,23 @@ class MediaController extends Controller
       }
     }
 
-    public function saveBlogImage($request)
-    {
-      if ($request->media) {
-        $image = $request->media;
-        $name = $request->blog_title.'.'.$image->getClientOriginalExtension();
-        $destinationPath = 'img/blogs/';
-        $image->move($destinationPath, $name);
-        $image_location_and_name = $destinationPath.$name;
-
-        $media = new Media;
-        $media->media_title = 'BlogBg-'.$request->blog_title;
-        $media->media_location = $image_location_and_name;
-        $media->media_type = $image->getClientOriginalExtension();
-        $media->uploader_id = Auth::id();
-        $media->save();
-
-        $media_id = $media->id;
-
-        return $media_id;
-      }
-    }
-
     public function deleteImage($id)
     {
-      $media = Media::find($id);
-
-      $image_path = $media->media_location;
-
-      if (File::exists($image_path)) {
-          File::delete($image_path);
+      // this is just to ensure that we dont delete the predefined image used as a placeholder
+      if ($id > 4) {
+        $media = Media::find($id);
+        $image_path = $media->media_location;
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $media->delete();
       }
-
-      // $mediaName = substr($media->media_location, 4);
-      // File::delete($mediaName);
-      $media->delete();
     }
 
+    public function cleanString($string)
+    {
+     $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
 
+     return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+    }
 }

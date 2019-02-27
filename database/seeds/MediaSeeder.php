@@ -13,6 +13,18 @@ class MediaSeeder extends Seeder
      {
        DB::table('medias')->insert([
          [
+             'media_title' => 'User Placeholder',
+             'media_location' => 'img/profile_pictures/user-placeholder.jpg',
+             'media_type' => '.jpg',
+             'uploader_id' => 1,
+         ],
+         [
+             'media_title' => 'Blog Placeholder',
+             'media_location' => 'img/blogs/blog-default.jpg',
+             'media_type' => '.jpg',
+             'uploader_id' => 1,
+         ],
+         [
              'media_title' => 'Background 1',
              'media_location' => 'img/categories/bg-1.jpg',
              'media_type' => '.jpg',

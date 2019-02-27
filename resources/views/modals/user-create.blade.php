@@ -27,6 +27,22 @@
             <label for="password_confirmation">Confirm Password</label>
             <input type="password" class="form-control" name="password_confirmation">
           </div>
+          <div class="form-group">
+            <label for="role">Role</label>
+            <select class="form-control" name="role">
+                @foreach ($roles as $role)
+                  <option value="{{$role->id}}">{{$role->name}}</option>
+                @endforeach
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select class="form-control" name="status">
+                @foreach ($statuses as $status)
+                  <option value="{{$status->id}}">{{$status->status_name}}</option>
+                @endforeach
+            </select>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-success">Save changes</button>

@@ -5,13 +5,13 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Customer Sign In</h4>
+                <h4 class="modal-title">User Sign In</h4>
                 <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
-              <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+              <form class="form-horizontal" role="form" method="POST" action="{{ route('user.login') }}">
                   {{ csrf_field() }}
 
                   <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

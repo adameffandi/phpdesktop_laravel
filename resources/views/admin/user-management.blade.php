@@ -41,6 +41,8 @@
                     <th>No.</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </thead>
                   <tbody>
@@ -49,6 +51,8 @@
                       <td></td>
                       <td>{{$user->name}}</td>
                       <td>{{$user->email}}</td>
+                      <td>{{$user->role->name}}</td>
+                      <td>{{$user->status->status_name}}</td>
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
                           {{-- <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#user-view-{{$user->id}}"><i class="fas fa-eye"></i></button> --}}

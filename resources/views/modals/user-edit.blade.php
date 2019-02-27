@@ -19,7 +19,33 @@
             <label for="email">Email address</label>
             <input type="email" class="form-control" name="email" value="{{$user->email}}">
           </div>
-        </div>
+          <div class="form-group">
+            <label for="role">Role</label>
+            <select class="form-control" name="role">
+              <optgroup label="Current">
+                <option value="{{$user->role_id}}">{{$user->role->name}}</option>
+              </optgroup>
+              <optgroup label="Options">
+                @foreach ($roles as $role)
+                  <option value="{{$role->id}}">{{$role->name}}</option>
+                @endforeach
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select class="form-control" name="status">
+              <optgroup label="Current">
+                <option value="{{$user->status_id}}">{{$user->status->status_name}}</option>
+              </optgroup>
+              <optgroup label="Options">
+                @foreach ($statuses as $status)
+                  <option value="{{$status->id}}">{{$status->status_name}}</option>
+                @endforeach
+              </optgroup>
+            </select>
+          </div>
+        </div> <!-- end modal body -->
         <div class="modal-footer">
           <button type="submit" class="btn btn-success">Save changes</button>
         </div>

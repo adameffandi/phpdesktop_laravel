@@ -19,6 +19,26 @@ class CategorySeeder extends Seeder
          [
              'category_name' => 'General',
              'media_id' => 2,
+         ],
+         [
+             'category_name' => 'Travel',
+             'media_id' => 2,
+         ],
+         [
+             'category_name' => 'Nature',
+             'media_id' => 2,
+         ],
+         [
+             'category_name' => 'Entertainment',
+             'media_id' => 2,
+         ],
+         [
+             'category_name' => 'Arts',
+             'media_id' => 2,
+         ],
+         [
+             'category_name' => 'Sports',
+             'media_id' => 2,
          ]
        ]);
      }

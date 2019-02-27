@@ -2,6 +2,18 @@
 
 @section('content')
   <div class="container">
+    <div class="row message-section">
+      <div class="col-md-12">
+        @if(Session::has('success'))
+          <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('success') }}</p>
+        @elseif($errors->any())
+          <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ implode('', $errors->all(':message. ')) }}</p>
+        @elseif (Session::has('fail'))
+          <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('fail') }}</p>
+        @endif
+      </div>
+    </div>
+
     <div class="landing-blogs page-section">
       <div class="row blogs-lg">
         <div class="col-lg-6 col-md-6 col-sm-12">
@@ -55,7 +67,7 @@
                   <hr>
                   <p class="grey-text"> <i class="fa fa-calendar"></i> <i>{{date_format($blog->created_at, 'F j, Y')}}, 8 comments</i> </p>
                   <p>
-                    {{substr($blog->content, 0, 300) . "..."}}
+                    {{substr($blog->content, 0, 150) . "..."}}
                   </p>
                   <button type="button" class="btn btn-secondary">Read More <i class="fa fa-arrow-right"></i> </button>
                 </div>

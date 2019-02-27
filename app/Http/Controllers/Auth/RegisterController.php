@@ -62,10 +62,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $users_admin_exist = User::where('role_id', 1)->get(); //check if user with admin role exist
+
+        $user = new User;
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['password']);
+        $user->status_id = 1;
+
+        if ($users_admin_exist) {
+          $user->role_id = 2;
+        } else {
+          $user->role_id = 1;
+        }
+
+        $user->save();
+
+        return $user;
+        // ==== original =====
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => bcrypt($data['password']),
+        // ]);
     }
 }

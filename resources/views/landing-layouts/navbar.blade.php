@@ -14,10 +14,14 @@
             </li>
 						@if (Auth::check())
 							<li class="nav-item">
-	                <a class="nav-link" href="#">My Account</a>
+                @if (Auth::user()->role_id == 1)
+                  <a class="nav-link" href="{{route('home')}}">My Account</a>
+                @else
+                  <a class="nav-link" href="{{route('user')}}">My Account</a>
+                @endif
 	            </li>
 							<li class="nav-item">
-	                <a class="nav-link" href="#">Sign Out</a>
+	                <a class="nav-link" href="{{route('logout')}}">Sign Out</a>
 	            </li>
 						@else
 							<li class="nav-item">
