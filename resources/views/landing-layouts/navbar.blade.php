@@ -7,10 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto topnav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{route('landing')}}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Blogs</a>
+                <a class="nav-link" href="{{route('all.blog')}}">Blogs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('view.category')}}">Categories</a>
             </li>
 						@if (Auth::check())
 							<li class="nav-item">

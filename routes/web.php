@@ -12,13 +12,18 @@
 */
 
 Route::get('/', 'PublicController@index')->name('landing');
+Route::get('/blogs-all', 'PublicController@getAllBlogs')->name('all.blog');
+Route::get('/blog-single/{id}', 'PublicController@viewBlog')->name('view.blog');
+Route::get('/category', 'PublicController@getCategory')->name('view.category');
+Route::get('/blogs-with-category/{id}', 'PublicController@getBlogWithCategory')->name('view.blog.with.category');
+
 Route::post('userlogin', 'PublicController@userLogin')->name('user.login');
 Route::get('logout', 'PublicController@logout2')->name('logout2');
 
 Auth::routes();
 
 // ===============================================================================================
-// ================================= ADMON =======================================================
+// ================================= ADMiN =======================================================
 // ===============================================================================================
 
 Route::group(["middleware" => "App\Http\Middleware\AdminMiddleware", 'prefix' => 'home'], function () {
