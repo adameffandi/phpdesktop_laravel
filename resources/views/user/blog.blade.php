@@ -19,10 +19,10 @@
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <h2>My Blogs</h2>
-          <div class="float-right">
-            <a href="#" class="dashboard-btn" data-toggle="modal" data-target="#blog-user-create"> <i class="fa fa-plus"></i> Add Blog</a>
-            @include('modals.blog-user-create')
-          </div>
+          <button type="button" class="dashboard-btn" data-toggle="modal" data-target="blog-user-create">
+            Create Blog
+          </button>
+          @include('modals.blog-user-create')
         </div>
       </div><!-- end row -->
 
@@ -40,8 +40,24 @@
 
         <div class="tab-content">
           <div role="tab-panel" class="tab-pane active" id="user-blog">
-            test 1
+            <div class="row all-blog-section">
+              @foreach ($blogs as $blog)
+                <div class="col-lg-4 col-md-6 col-sm-12 all-blog-one-row">
+                  <div class="all-blog-item">
+                    <a href="{{route('view.blog', $blog->id)}}" class="all-blog-link" target="_blank">
+                        <img src="{{asset($blog->media->media_location)}}" alt="" class="all-blog-img">
+                        <div class="all-blog-summary">
+                          <h4 class="all-blog-title">{{$blog->title}}</h4>
+                          <p>{{substr($blog->content, 0, 150) . "..."}}</p>
+                          <p class="grey-text"> <i class="fa fa-calendar"></i> <i>{{date_format($blog->created_at, 'F j, Y')}}, 8 comments</i> </p>
+                        </div> <!--end col, all-blog-summary -->
+                    </a>
+                  </div> <!-- end all-blog-item -->
+                </div>
+              @endforeach
+            </div>
           </div><!-- end tab panel -->
+
           <div role="tab-panel" class="tab-pane" id="user-blog-table">
             <table class="table table-responsive" id="blogMgtTable">
               <thead>
@@ -50,7 +66,7 @@
                 <th>Content</th>
                 <th>Category</th>
                 <th>Content Status</th>
-                <th>Created By</th>
+                <th>Status</th>
                 <th>Action</th>
               </thead>
               <tbody>
@@ -61,7 +77,7 @@
                   <td align="center">{{substr($blog->content, 0, 50) . "..."}}</td>
                   <td align="center">{{$blog->category->category_name}}</td>
                   <td align="center">{{$blog->content_status->status}}</td>
-                  <td align="center">{{$blog->user->name}}</td>
+                  <td align="center">{{$blog->status->status_name}}</td>
                   <td align="center" style="width: 150px;">
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-info btn-action" data-toggle="modal" data-target="#blog-view-{{$blog->id}}"><i class="fas fa-eye"></i></button>

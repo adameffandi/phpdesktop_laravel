@@ -52,7 +52,13 @@
                       <td>{{$user->name}}</td>
                       <td>{{$user->email}}</td>
                       <td>{{$user->role->name}}</td>
-                      <td>{{$user->status->status_name}}</td>
+                      <td>
+                        @if ($user->status_id == 1)
+                          <span class="green-text">{{$user->status->status_name}}</span>
+                        @else
+                          <span class="red-text">{{$user->status->status_name}}</span>
+                        @endif
+                      </td>
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
                           {{-- <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#user-view-{{$user->id}}"><i class="fas fa-eye"></i></button> --}}

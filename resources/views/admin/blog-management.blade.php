@@ -14,7 +14,7 @@
             <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('fail') }}</p>
           @endif
 
-          <div class="card text-center">
+          <div class="card">
             <ul class="nav nav-tabs card-header-tabs" role="tablist" id="blogMgtDashboardTabMenu">
               <li class="nav-item active" role="presentation">
                 <a href="#blog-management" aria-controls="blog-management" role="tab" data-toggle="tab">Blog</a>
@@ -30,7 +30,7 @@
 
               <div role="tab-panel" class="tab-pane active" id="blog-management">
                 <h3 class="card-title">Manage Blogs</h3>
-                <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#blog-create">
+                <button type="button" class="dashboard-btn" data-toggle="modal" data-target="#blog-create">
                   Create Blog
                 </button>
                 @include('modals.blog-create')
