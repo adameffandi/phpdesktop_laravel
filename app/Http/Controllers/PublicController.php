@@ -19,10 +19,10 @@ class PublicController extends Controller
     public function index()
     {
       $categories = Category::where('id', '!=', 1)->take(5)->get();
-      $blogs = Blog::where('content_status_id', 1)->get();
-      $blog_trending_main = Blog::where('id', '!=', 1)->where('homepage_tag_id', 4)->inRandomOrder()->take(1)->first();
+      $blogs = Blog::where('status_id', 3)->where('content_status_id', 1)->get();
+      $blog_trending_main = Blog::where('id', '!=', 1)->where('status_id', 3)->where('homepage_tag_id', 4)->inRandomOrder()->take(1)->first();
       // dd($blog_trending_main);
-      $blog_trending_ones = Blog::where('id', '!=', 1)->where('homepage_tag_id', 4)->where('id', '!=', $blog_trending_main->id)->inRandomOrder()->take(2)->get();
+      $blog_trending_ones = Blog::where('id', '!=', 1)->where('status_id', 3)->where('homepage_tag_id', 4)->where('id', '!=', $blog_trending_main->id)->inRandomOrder()->take(2)->get();
       $id_exist = $blog_trending_ones->pluck('id');
       $blog_trending_twos = Blog::where('id', '!=', 1)->where('homepage_tag_id', 4)->where('id', '!=', $blog_trending_main->id)->whereNotIn('id', $id_exist)->inRandomOrder()->take(2)->get();
 
@@ -31,7 +31,7 @@ class PublicController extends Controller
 
     public function getAllBlogs()
     {
-      $blogs = Blog::orderBy('created_at', 'DESC')->get();
+      $blogs = Blog::where('status_id', 3)->where('content_status_id', 1)->orderBy('created_at', 'DESC')->get();
       return view('blogs_all', compact('blogs'));
     }
 
@@ -52,7 +52,7 @@ class PublicController extends Controller
 
     public function getBlogWithCategory($id)
     {
-      $blogs = Blog::where('category_id', $id)->get();
+      $blogs = Blog::where('status_id', 3)->where('content_status_id', 1)->where('category_id', $id)->get();
       $category = Category::find($id);
       $count_blog = count($blogs);
 

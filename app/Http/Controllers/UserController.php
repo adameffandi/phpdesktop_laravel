@@ -3,6 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
+use Auth;
+use DB;
+use App\Models\User;
+use App\Models\Role;
+use App\Models\Status;
+use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\ContentStatus;
+use App\Models\HomepageTag;
 
 class UserController extends Controller
 {
@@ -44,22 +55,80 @@ class UserController extends Controller
 
    public function getBlog()
    {
-     return view('user.blog');
+     $blogs = Blog::where('user_id', Auth::id())->get();
+     $comments = Comment::all();
+     $categories = Category::all();
+     $contentstatuses = ContentStatus::all();
+
+     return view('user.blog', compact('blogs', 'comments', 'categories', 'contentstatuses'));
    }
 
    public function createBlog(Request $request)
    {
-     return redirect()->route('user');
+     $media_id = app('App\Http\Controllers\MediaController')->saveImage($request, 'blog');
+
+     $blog = new Blog;
+     $blog->title = $request->blog_title;
+     $blog->content = $request->blog_content;
+     $blog->media_id = $media_id;
+     $blog->user_id = Auth::id();
+     $blog->status_id = 3; //change to 4 if need admin approval
+     $blog->category_id = $request->blog_category;
+     $blog->homepage_tag_id = 1;
+     $blog->content_status_id = $request->blog_content_status;
+     $blog->save();
+
+     Session::flash('success', $blog->title. ' blog successfully created!');
+     return redirect()->route('user.blog');
    }
 
    public function editBlog(Request $request, $id)
    {
-     return redirect()->route('user');
+     $blog = Blog::find($id);
+
+     if (isset($blog)) {
+       if ($request->media == null) {
+         $blog->title = $request->blog_title;
+         $blog->content = $request->blog_content;
+         $blog->category_id = $request->blog_category;
+         $blog->homepage_tag_id = $request->blog_homepage_tag;
+         $blog->content_status_id = $request->blog_content_status;
+         $blog->save();
+       } else {
+         //delete previous media
+         app('App\Http\Controllers\MediaController')->deleteImage($blog->media_id);
+         //save new media and get its id
+         $media_id = app('App\Http\Controllers\MediaController')->saveImage($request, 'blog');
+
+         $blog->title = $request->blog_title;
+         $blog->content = $request->blog_content;
+         $blog->media_id = $media_id;
+         $blog->category_id = $request->blog_category;
+         $blog->homepage_tag_id = $request->blog_homepage_tag;
+         $blog->content_status_id = $request->blog_content_status;
+         $blog->save();
+       }
+
+       Session::flash('success', $blog->title. ' blog successfully updated!');
+     } else {
+       Session::flash('fail', 'Fail to update blog');
+     }
+     return redirect()->route('user.blog');
    }
 
    public function deleteBlog(Request $request, $id)
    {
-     return redirect()->route('user');
+     $blog = Blog::find($id);
+
+     if (isset($blog)) {
+       app('App\Http\Controllers\MediaController')->deleteImage($blog->media_id);
+       $blog->delete();
+       Session::flash('success', $blog->title. ' blog successfully deleted!');
+     } else {
+       Session::flash('success', 'Fail to delete blog');
+     }
+
+     return redirect()->route('user.blog');
    }
 
    public function getComment()

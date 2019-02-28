@@ -44,7 +44,9 @@
               <p class="grey-text"> <i>Date: {{date_format($blog->created_at, 'd F y')}}</i> </p>
             </div>
             <div class="col-sm-4">
-              <p class="grey-text"> <i>Tag: {{$blog->homepagetag->homepage_tag_name}}</i> </p>
+              @if (Auth::user()->role_id == 1)
+                <p class="grey-text"> <i>Tag: {{$blog->homepagetag->homepage_tag_name}}</i> </p>
+              @endif
             </div>
           </div>
         </div>

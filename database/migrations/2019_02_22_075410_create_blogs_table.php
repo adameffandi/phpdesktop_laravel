@@ -19,6 +19,7 @@ class CreateBlogsTable extends Migration
           $table->text('content');
           $table->integer('media_id')->nullable();
           $table->integer('user_id');
+          $table->integer('status_id')->nullable();
           $table->integer('category_id')->nullable();
           $table->integer('homepage_tag_id')->nullable();
           $table->integer('content_status_id')->nullable();

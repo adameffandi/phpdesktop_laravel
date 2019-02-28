@@ -73,3 +73,17 @@ table thead th {
 }
 
 .tooltip { pointer-events: none; }
+
+.dashboard-btn {
+  padding: 10px 25px 10px 25px;
+  background-color: transparent;
+  color: #ff7979;
+  border-radius: 200px;
+  border: 2px dotted #ff7979;
+}
+
+.dashboard-btn:hover {
+  background-color: #ff7979;
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}

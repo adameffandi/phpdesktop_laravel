@@ -17,12 +17,12 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="col-sm-12 col-md-5 col-lg-5">
           <div class="panel panel-primary">
             <div class="panel-body">A Basic Panel</div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="col-sm-12 col-md-7 col-lg-7">
           <div class="panel panel-default">
             <div class="panel-body">A Basic Panel</div>
           </div>

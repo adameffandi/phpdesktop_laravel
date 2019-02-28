@@ -18,6 +18,11 @@ class Blog extends Model
         return $this->belongsTo('App\Models\Media', 'media_id');
     }
 
+    public function status()
+    {
+        return $this->belongsTo('App\Models\Status', 'status_id');
+    }
+
     public function category()
     {
         return $this->belongsTo('App\Models\Category', 'category_id');

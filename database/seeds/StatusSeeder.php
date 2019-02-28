@@ -19,7 +19,13 @@ class StatusSeeder extends Seeder
              'status_name' => 'Blocked',
          ],
          [
+             'status_name' => 'Approved',
+         ],
+         [
              'status_name' => 'Pending',
+         ],
+         [
+             'status_name' => 'Archived',
          ]
        ]);
      }

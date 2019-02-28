@@ -12,4 +12,9 @@ class Status extends Model
   {
       return $this->hasMany('App\Models\User');
   }
+
+  public function blog()
+  {
+      return $this->hasMany('App\Models\Blog');
+  }
 }

@@ -128,6 +128,7 @@ class HomeController extends Controller
       $blog->content = $request->blog_content;
       $blog->media_id = $media_id;
       $blog->user_id = Auth::id();
+      $blog->status_id = 3;
       $blog->category_id = $request->blog_category;
       $blog->homepage_tag_id = $request->blog_homepage_tag;
       $blog->content_status_id = $request->blog_content_status;
