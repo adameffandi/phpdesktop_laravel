@@ -59,6 +59,15 @@ class PublicController extends Controller
       return view('blog_category', compact('blogs', 'category', 'count_blog'));
     }
 
+    public function getAuthorProfile($id)
+    {
+      $user = User::find($id);
+      $blogs = Blog::where('status_id', 3)->where('content_status_id', 1)->where('user_id', $user->id)->get();
+      $count_blog = count($blogs);
+
+      return view('author_page', compact('blogs', 'user', 'count_blog'));
+    }
+
     public function userLogin(Request $request)
     {
       $userexist = User::where('email', $request->email)->first();

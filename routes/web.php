@@ -16,6 +16,7 @@ Route::get('/blogs-all', 'PublicController@getAllBlogs')->name('all.blog');
 Route::get('/blog-single/{id}', 'PublicController@viewBlog')->name('view.blog');
 Route::get('/category', 'PublicController@getCategory')->name('view.category');
 Route::get('/blogs-with-category/{id}', 'PublicController@getBlogWithCategory')->name('view.blog.with.category');
+Route::get('/author/profile/{id}', 'PublicController@getAuthorProfile')->name('view.author');
 
 Route::post('userlogin', 'PublicController@userLogin')->name('user.login');
 Route::get('logout', 'PublicController@logout2')->name('logout2');

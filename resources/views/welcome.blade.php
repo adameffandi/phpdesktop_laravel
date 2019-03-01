@@ -70,12 +70,13 @@
                   </a>
                 </div>
                 <div class="col-md-6">
-                  <a href="#" class="link-text">
+                  <a href="{{route('view.blog.with.category', $blog->category->id)}}" class="link-text">
                     <p class="category-text"><b> // {{$blog->category->category_name}} </b></p>
                   </a>
                   <h4><a href="{{route('view.blog', $blog->id)}}" class="link-text">{{$blog->title}}</a></h4>
                   <hr>
-                  <p class="grey-text"> <i class="fa fa-calendar"></i> <i>{{date_format($blog->created_at, 'F j, Y')}}, 8 comments</i> </p>
+                  <p class="author-link">By <a href="{{route('view.author', $blog->user_id)}}">{{$blog->user->name}}</a> </p>
+                  <p class="grey-text"> <i class="fa fa-calendar"></i> <i>{{date_format($blog->created_at, 'F j, Y')}}</i></p>
                   <p>
                     {{substr($blog->content, 0, 150) . "..."}}
                   </p>

@@ -159,6 +159,15 @@ img {
   background-color: #333;
 }
 
+.author-link a{
+  color: #ff7979;
+  text-decoration: none;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 /*=============================================================================
                           Landing category Section
   ==============================================================================*/
@@ -302,4 +311,12 @@ img {
 .single-blog-info-sec a:hover{
   color: #444;
   text-decoration: none;
+}
+
+/*=============================================================================
+                          author ptofile Section
+==============================================================================*/
+.public-profile-section {
+  /* padding: 50px; */
+  /* margin: 30px ; */
 }

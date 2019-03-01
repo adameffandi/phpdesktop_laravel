@@ -23,8 +23,8 @@
             <p class="grey-text">
               <i>
                 Date posted: {{date_format($blog->created_at, 'F j, Y')}} <br>
-                Author: <a href="#">{{$blog->user->name}}</a> <br>
-                Category: <a href="#">{{$blog->category->category_name}}</a>
+                Author: <a href="{{route('view.author', $blog->user_id)}}">{{$blog->user->name}}</a> <br>
+                Category: <a href="{{route('view.blog.with.category', $blog->category->id)}}">{{$blog->category->category_name}}</a>
               </i>
             </p>
           </div>
@@ -41,12 +41,12 @@
               @foreach ($related_blogs as $rblog)
                 <div class="row most-popular-blogs-item">
                   <div class="col-md-4">
-                    <a href="#">
+                    <a href="{{route('view.blog', $rblog->id)}}">
                       <img class="img-responsive" src="{{ asset($rblog->media->media_location) }}" alt="">
                     </a>
                   </div>
                   <div class="col-md-8">
-                    <h5><a href="#" class="link-text">{{$rblog->title}}</a></h5>
+                    <h5><a href="{{route('view.blog', $rblog->id)}}" class="link-text">{{$rblog->title}}</a></h5>
                     <p class="grey-text"> <i class="fa fa-calendar"></i> {{date_format($rblog->created_at, 'F j, Y')}}</p>
                   </div>
                 </div>
@@ -61,14 +61,16 @@
             <h2 class="page-section-title">Categories</h2>
             <br>
             @foreach ($categories as $category)
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12 category-image">
-                  <div class="img-tint">
-                    <h5 class="category-name">{{$category->category_name}}</h5>
-                    <img class="img-responsive" src="{{ asset($category->media->media_location) }}" alt="">
-                  </div>
+              <a href="{{route('view.blog.with.category', $category->id)}}">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 category-image">
+                      <div class="img-tint">
+                        <h5 class="category-name">{{$category->category_name}}</h5>
+                        <img class="img-responsive" src="{{ asset($category->media->media_location) }}" alt="">
+                      </div>
+                    </div>
                 </div>
-              </div>
+              </a>
             @endforeach
           </div>
         </div>

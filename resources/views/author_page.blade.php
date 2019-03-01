@@ -14,11 +14,22 @@
       </div>
     </div>
 
-    <div class="row all-blog-section">
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <h1 class="text-center">All Blogs</h1>
+    <div class="row public-profile-section">
+      <div class="col-sm-12 col-md-4 col-lg-2">
+        <img src="{{asset('img/profile_pictures/user-placeholder.jpg')}}" alt="" class="img-responsive">
+      </div>
+      <div class="col-sm-12 col-md-8 col-lg-10">
+        <h1>{{$user->name}}</h1>
+        @if (isset($user->created_at))
+          <p name="grey-text-2">Member since <i>{{date_format($user->created_at, 'j F Y')}}</i> </p>
+        @endif
+        @if (isset($count_blog))
+          <p>{{$count_blog}} blog(s) published.</p>
+        @endif
       </div>
     </div>
+
+    <hr>
 
     <div class="row all-blog-section">
       @foreach ($blogs as $blog)
@@ -35,6 +46,10 @@
           </div> <!-- end all-blog-item -->
         </div>
       @endforeach
+    </div>
+
+    <div class="row all-blog-section">
+
     </div>
   </div> <!-- end container -->
 @endsection
