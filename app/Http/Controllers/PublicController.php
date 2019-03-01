@@ -26,7 +26,11 @@ class PublicController extends Controller
       $id_exist = $blog_trending_ones->pluck('id');
       $blog_trending_twos = Blog::where('id', '!=', 1)->where('status_id', 3)->where('content_status_id', 1)->where('homepage_tag_id', 4)->where('id', '!=', $blog_trending_main->id)->whereNotIn('id', $id_exist)->inRandomOrder()->take(2)->get();
 
-      return view('welcome', compact('categories', 'blogs', 'blog_trending_main', 'blog_trending_ones', 'blog_trending_twos'));
+      $trending_blog = Blog::where('status_id', 3)->where('content_status_id', 1)->where('homepage_tag_id', 4)->inRandomOrder()->first();
+
+      $second_trending_blogs = Blog::where('id', '!=', $trending_blog->id)->where('status_id', 3)->where('content_status_id', 1)->where('homepage_tag_id', 4)->inRandomOrder()->take(4)->get();
+
+      return view('welcome', compact('categories', 'blogs', 'blog_trending_main', 'blog_trending_ones', 'blog_trending_twos', 'trending_blog', 'second_trending_blogs'));
     }
 
     public function getAllBlogs()

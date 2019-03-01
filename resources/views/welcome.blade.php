@@ -15,61 +15,50 @@
     </div>
 
     <div class="landing-blogs page-section">
-      <div class="row blogs-lg">
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <a href="{{route('view.blog', $blog_trending_main->id)}}">
-            <div class="landing-blog-title-category-lg">
-              <p class="landing-blog-category-lg">{{$blog_trending_main->category->category_name}}</p>
-              <h3 class="landing-blog-title-lg">{{$blog_trending_main->title}}</h3>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 landing-blogs-item">
+          <div class="hovereffect">
+            <img class="img-responsive" src="{{$trending_blog->media->media_location}}" alt="">
+            <div class="overlay">
+               <h2>{{$trending_blog->title}}</h2>
+               <br>
+               <a class="info read-more-btn" href="{{route('view.blog', $trending_blog->id)}}">Read More</a>
             </div>
-            <img class="img-responsive" src="{{ asset($blog_trending_main->media->media_location) }}" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <div class="row new-sm new-sm-1">
-            @foreach ($blog_trending_ones as $blog_trending_one)
-              <div class="col-lg-6 col-sm-12">
-                <a href="{{route('view.blog', $blog_trending_one->id)}}">
-                  <div class="landing-blog-title-category">
-                    <p class="landing-blog-category">{{$blog_trending_one->category->category_name}}</p>
-                    <h5 class="landing-blog-title">{{$blog_trending_one->title}}</h5>
+          </div>
+        </div> <!--end col -->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="row">
+            @foreach ($second_trending_blogs as $tblog)
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 landing-blogs-item">
+                <div class="hovereffect">
+                  <img class="img-responsive" src="{{$tblog->media->media_location}}" alt="">
+                  <div class="overlay">
+                     <h2>{{$tblog->title}}</h2>
+                     <br>
+                     <a class="info read-more-btn" href="{{route('view.blog', $tblog->id)}}">Read More</a>
                   </div>
-                  <img class="img-responsive" src="{{ asset($blog_trending_one->media->media_location) }}" alt="">
-                </a>
+                </div>
               </div>
             @endforeach
           </div>
-          <div class="row new-sm new-sm-2">
-            @foreach ($blog_trending_twos as $blog_trending_two)
-              <div class="col-lg-6 col-sm-12">
-                <a href="{{route('view.blog', $blog_trending_two->id)}}">
-                  <div class="landing-blog-title-category">
-                    <p class="landing-blog-category">{{$blog_trending_two->category->category_name}}</p>
-                    <h5 class="landing-blog-title">{{$blog_trending_two->title}}</h5>
-                  </div>
-                  <img class="img-responsive" src="{{ asset($blog_trending_two->media->media_location) }}" alt="">
-                </a>
-              </div>
-            @endforeach
-          </div>
-        </div>
-      </div>
+        </div><!--end col -->
+      </div> <!-- end row -->
     </div>
 
     <div class="trending-blogs page-section">
       <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-12 col-md-12 col-lg-8">
           <h2 class="page-section-title">Trending</h2>
           <br>
           @foreach ($blogs as $blog)
             @if ($blog->homepage_tag_id == 2)
               <div class="row trending-blogs-item">
-                <div class="col-md-6">
+                <div class="col-sm-12 col-md-12 col-lg-6">
                   <a href="{{route('view.blog', $blog->id)}}">
                     <img class="img-responsive" src="{{ asset($blog->media->media_location) }}" alt="">
                   </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-12 col-md-12 col-lg-6">
                   <a href="{{route('view.blog.with.category', $blog->category->id)}}" class="link-text">
                     <p class="category-text"><b> // {{$blog->category->category_name}} </b></p>
                   </a>
@@ -88,7 +77,7 @@
           @endforeach
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-12 col-md-12 col-lg-4">
           <div class="row sub-section">
             <div class="col-sm-12 col-md-12 col-lg-12">
               <h2 class="page-section-title">Most Popular</h2>
