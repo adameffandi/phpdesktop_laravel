@@ -140,3 +140,29 @@ table thead th {
   text-decoration: none;
   transition: ease-in-out .3s;
 }
+
+/*=============================================================================
+                          User Home Section
+==============================================================================*/
+
+.user-statistic {
+  padding: 10px;
+  margin: 5px 0px 5px 0px;
+  color: #fff;
+}
+
+.user-statistic-box-1 {
+  background-color: #2e86de;
+}
+
+.user-statistic-box-2 {
+  background-color: #10ac84;
+}
+
+.user-statistic-box-3 {
+  background-color: #ff9f43;
+}
+
+.user-statistic-box-4 {
+  background-color: #ee5253;
+}

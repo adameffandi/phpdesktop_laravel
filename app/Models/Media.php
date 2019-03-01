@@ -22,4 +22,9 @@ class Media extends Model
   {
       return $this->hasMany('App\Models\Media');
   }
+
+  public function profile_picture()
+  {
+    return $this->hasMany('App\Models\User');
+  }
 }

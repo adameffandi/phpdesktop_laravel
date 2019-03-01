@@ -19,7 +19,7 @@
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <h2>My Blogs</h2>
-          <button type="button" class="dashboard-btn" data-toggle="modal" data-target="blog-user-create">
+          <button type="button" class="dashboard-btn" data-toggle="modal" data-target="#blog-user-create">
             Create Blog
           </button>
           @include('modals.blog-user-create')
@@ -73,21 +73,37 @@
                 @foreach ($blogs as $blog)
                 <tr>
                   <td align="center"></td>
-                  <td align="center">{{$blog->title}}</td>
-                  <td align="center">{{substr($blog->content, 0, 50) . "..."}}</td>
+                  <td align="center">{{substr($blog->title, 0, 50) . " ..."}}</td>
+                  <td align="center">{{substr($blog->content, 0, 50) . " ..."}}</td>
                   <td align="center">{{$blog->category->category_name}}</td>
-                  <td align="center">{{$blog->content_status->status}}</td>
-                  <td align="center">{{$blog->status->status_name}}</td>
+                  <td align="center">
+                    @if ($blog->content_status_id == 1)
+                      <span class="green-text">{{$blog->content_status->status}}</span>
+                    @elseif ($blog->content_status_id == 3)
+                      <span class="orange-text">{{$blog->content_status->status}}</span>
+                    @else
+                      <span class="red-text">{{$blog->content_status->status}}</span>
+                    @endif
+                  </td>
+                  <td align="center">
+                    @if ($blog->status_id == 3)
+                      <span class="green-text">{{$blog->status->status_name}}</span>
+                    @elseif ($blog->status_id == 4)
+                      <span class="orange-text">{{$blog->status->status_name}}</span>
+                    @else
+                      <span class="red-text">{{$blog->status->status_name}}</span>
+                    @endif
+                  </td>
                   <td align="center" style="width: 150px;">
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-info btn-action" data-toggle="modal" data-target="#blog-view-{{$blog->id}}"><i class="fas fa-eye"></i></button>
                       <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#blog-user-edit-{{$blog->id}}"><i class="fas fa-pencil-alt"></i></button>
-                      <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#blog-user-delete-{{$blog->id}}"><i class="fas fa-times"></i></button>
+                      {{-- <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#blog-user-delete-{{$blog->id}}"><i class="fas fa-times"></i></button> --}}
                     </div>
 
                     @include('modals.blog-view')
                     @include('modals.blog-user-edit')
-                    @include('modals.blog-user-delete')
+                    {{-- @include('modals.blog-user-delete') --}}
                   </td>
                 </tr>
                 @endforeach

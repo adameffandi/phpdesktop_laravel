@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Blog');
     }
+
+    public function profile_picture()
+    {
+        return $this->belongsTo('App\Models\Media', 'profile_picture_id');
+    }
 }

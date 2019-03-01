@@ -8,7 +8,7 @@
   @elseif (Auth::user()->role_id == 2)
     <a href="{{route('user')}}">Home</a>
     <a href="{{route('user.blog')}}">My Blogs</a>
-    <a href="{{route('user.comment')}}">My Comments</a>
+    {{-- <a href="{{route('user.comment')}}">My Comments</a> --}}
   @else
     <a href="{{route('logout')}}">Logout</a>
   @endif

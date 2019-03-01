@@ -20,11 +20,11 @@ class PublicController extends Controller
     {
       $categories = Category::where('id', '!=', 1)->take(5)->get();
       $blogs = Blog::where('status_id', 3)->where('content_status_id', 1)->get();
-      $blog_trending_main = Blog::where('id', '!=', 1)->where('status_id', 3)->where('homepage_tag_id', 4)->inRandomOrder()->take(1)->first();
+      $blog_trending_main = Blog::where('id', '!=', 1)->where('status_id', 3)->where('content_status_id', 1)->where('homepage_tag_id', 4)->inRandomOrder()->take(1)->first();
       // dd($blog_trending_main);
-      $blog_trending_ones = Blog::where('id', '!=', 1)->where('status_id', 3)->where('homepage_tag_id', 4)->where('id', '!=', $blog_trending_main->id)->inRandomOrder()->take(2)->get();
+      $blog_trending_ones = Blog::where('id', '!=', 1)->where('status_id', 3)->where('content_status_id', 1)->where('homepage_tag_id', 4)->where('id', '!=', $blog_trending_main->id)->inRandomOrder()->take(2)->get();
       $id_exist = $blog_trending_ones->pluck('id');
-      $blog_trending_twos = Blog::where('id', '!=', 1)->where('homepage_tag_id', 4)->where('id', '!=', $blog_trending_main->id)->whereNotIn('id', $id_exist)->inRandomOrder()->take(2)->get();
+      $blog_trending_twos = Blog::where('id', '!=', 1)->where('status_id', 3)->where('content_status_id', 1)->where('homepage_tag_id', 4)->where('id', '!=', $blog_trending_main->id)->whereNotIn('id', $id_exist)->inRandomOrder()->take(2)->get();
 
       return view('welcome', compact('categories', 'blogs', 'blog_trending_main', 'blog_trending_ones', 'blog_trending_twos'));
     }

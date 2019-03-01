@@ -36,7 +36,16 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('admin.home');
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+        $your_blogs = Blog::where('user_id', $user_id)->where('status_id', 3)->take(3)->get();
+
+        $total_blogs_posted = count(Blog::where('user_id', $user_id)->where('status_id', 3)->get());
+        $total_blogs_active = count(Blog::where('status_id', 3)->get());
+        $total_user_active = count(User::where('status_id', 1)->get());
+        $total_user_blocked = count(User::where('status_id', 2)->get());
+
+        return view('admin.home', compact('user', 'your_blogs', 'total_blogs_posted', 'total_blogs_active', 'total_user_active', 'total_user_blocked'));
     }
 
     public function getUser()
@@ -115,8 +124,9 @@ class HomeController extends Controller
       $categories = Category::all();
       $contentstatuses = ContentStatus::all();
       $homepagetags = HomepageTag::all();
+      $statuses = Status::where('id', '>=', 3)->get();
 
-      return view('admin.blog-management', compact('blogs', 'comments', 'categories', 'contentstatuses', 'homepagetags'));
+      return view('admin.blog-management', compact('blogs', 'comments', 'categories', 'contentstatuses', 'homepagetags', 'statuses'));
     }
 
     public function createBlog(Request $request)
@@ -169,6 +179,16 @@ class HomeController extends Controller
       } else {
         Session::flash('fail', 'Fail to update blog');
       }
+      return redirect()->route('home.blog');
+    }
+
+    public function statusBlog(Request $request, $id)
+    {
+      $blog = Blog::find($id);
+      $blog->status_id = $request->status;
+      $blog->save();
+
+      Session::flash('success', $blog->title. ' status successfully updated!');
       return redirect()->route('home.blog');
     }
 

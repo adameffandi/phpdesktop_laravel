@@ -34,9 +34,10 @@ Route::group(["middleware" => "App\Http\Middleware\AdminMiddleware", 'prefix' =>
   Route::post('/user/edit/{id}', 'HomeController@editUser')->name('home.user.edit');
   Route::post('/user/delete/{id}', 'HomeController@deleteUser')->name('home.user.delete');
   // ================================= blog =================================
-  Route::get('/blog', 'HomeController@getBlog')->name('home.blog'); // for blog, category and comment
+  Route::get('/blog', 'HomeController@getBlog')->name('home.blog'); // for blog and category
   Route::post('/blog/create', 'HomeController@createBlog')->name('home.blog.create');
   Route::post('/blog/edit/{id}', 'HomeController@editBlog')->name('home.blog.edit');
+  Route::post('/blog/status/{id}', 'HomeController@statusBlog')->name('home.blog.status');
   Route::post('/blog/delete/{id}', 'HomeController@deleteBlog')->name('home.blog.delete');
   // ================================= category =================================
   Route::post('/category/create', 'HomeController@createCategory')->name('home.category.create');
@@ -55,9 +56,7 @@ Route::group(["middleware" => "App\Http\Middleware\AdminMiddleware", 'prefix' =>
 
 Route::group(['prefix' => 'user'], function () {
   Route::get('/', 'UserController@index')->name('user');
-  Route::post('/profile/create', 'UserController@createUser')->name('user.profile.create');
   Route::post('/profile/edit/{id}', 'UserController@editUser')->name('user.profile.edit');
-  Route::post('/profile/delete/{id}', 'UserController@deleteUser')->name('user.profile.delete');
   Route::get('/blog', 'UserController@getBlog')->name('user.blog');
   Route::post('/blog/create', 'UserController@createBlog')->name('user.blog.create');
   Route::post('/blog/edit/{id}', 'UserController@editBlog')->name('user.blog.edit');

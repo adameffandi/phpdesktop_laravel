@@ -35,20 +35,18 @@ class UserController extends Controller
 
    public function index()
    {
-       return view('user.home');
-   }
+      $user_id = Auth::id();
+      $user = User::find($user_id);
+      $your_blogs = Blog::where('user_id', $user_id)->where('status_id', 3)->take(3)->get();
 
-   public function createProfile(Request $request)
-   {
-     return redirect()->route('user');
+      $count_blogs_posted = count(Blog::where('user_id', $user_id)->where('status_id', 3)->get());
+      $count_blogs_pending = count(Blog::where('user_id', $user_id)->where('status_id', 4)->get());
+      $count_blogs_archived = count(Blog::where('user_id', $user_id)->where('status_id', 5)->get());
+
+      return view('user.home', compact('user', 'your_blogs', 'count_blogs_posted', 'count_blogs_pending', 'count_blogs_archived'));
    }
 
    public function editProfile(Request $request, $id)
-   {
-     return redirect()->route('user');
-   }
-
-   public function deleteProfile(Request $request, $id)
    {
      return redirect()->route('user');
    }

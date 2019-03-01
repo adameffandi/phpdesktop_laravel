@@ -22,9 +22,9 @@
               <li class="nav-item" role="presentation">
                 <a href="#category-management" aria-controls="category-management" role="tab" data-toggle="tab">Category</a>
               </li>
-              <li class="nav-item" role="presentation">
+              {{-- <li class="nav-item" role="presentation">
                 <a href="#comment-management" aria-controls="comment-management" role="tab" data-toggle="tab">Comment</a>
-              </li>
+              </li> --}}
             </ul>
             <div class="tab-content">
 
@@ -42,30 +42,51 @@
                     <th>Content</th>
                     <th>Category</th>
                     <th>Homepage Tag</th>
-                    <th>Content Status</th>
                     <th>Created By</th>
+                    <th>Content Status</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </thead>
                   <tbody>
                     @foreach ($blogs as $blog)
                     <tr>
                       <td></td>
-                      <td>{{$blog->title}}</td>
-                      <td>{{substr($blog->content, 0, 50) . "..."}}</td>
+                      <td>{{substr($blog->title, 0, 50) . " ..."}}</td>
+                      <td>{{substr($blog->content, 0, 50) . " ..."}}</td>
                       <td>{{$blog->category->category_name}}</td>
                       <td>{{$blog->homepagetag->homepage_tag_name}}</td>
-                      <td>{{$blog->content_status->status}}</td>
                       <td>{{$blog->user->name}}</td>
+                      <td>
+                        @if ($blog->content_status_id == 1)
+                          <span class="green-text">{{$blog->content_status->status}}</span>
+                        @elseif ($blog->content_status_id == 3)
+                          <span class="orange-text">{{$blog->content_status->status}}</span>
+                        @else
+                          <span class="red-text">{{$blog->content_status->status}}</span>
+                        @endif
+                      </td>
+                      <td>
+                        @if ($blog->status_id == 3)
+                          <span class="green-text">{{$blog->status->status_name}}</span>
+                        @elseif ($blog->status_id == 4)
+                          <span class="orange-text">{{$blog->status->status_name}}</span>
+                        @else
+                          <span class="red-text">{{$blog->status->status_name}}</span>
+                        @endif
+                      </td>
                       <td style="width: 150px;">
                         <div class="btn-group" role="group" aria-label="Basic example">
                           <button type="button" class="btn btn-info btn-action" data-toggle="modal" data-target="#blog-view-{{$blog->id}}"><i class="fas fa-eye"></i></button>
                           <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#blog-edit-{{$blog->id}}"><i class="fas fa-pencil-alt"></i></button>
-                          <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#blog-delete-{{$blog->id}}"><i class="fas fa-times"></i></button>
+                          <button type="button" class="btn btn-warning btn-action" data-toggle="modal" data-target="#blog-status-{{$blog->id}}"><i class="fas fa-cogs"></i></button>
+                          {{-- <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#blog-delete-{{$blog->id}}"><i class="fas fa-times"></i></button> --}}
                         </div>
 
                         @include('modals.blog-view')
                         @include('modals.blog-edit')
-                        @include('modals.blog-delete')
+                        @include('modals.blog-status')
+
+                        {{-- @include('modals.blog-delete') --}}
                       </td>
                     </tr>
                     @endforeach
@@ -75,7 +96,7 @@
 
               <div role="tab-panel" class="tab-pane" id="category-management">
                 <h3 class="card-title">Manage Categories</h3>
-                <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#category-create">
+                <button type="button" class="dashboard-btn" data-toggle="modal" data-target="#category-create">
                   Add Category
                 </button>
                 @include('modals.category-create')
@@ -89,9 +110,9 @@
                   <tbody>
                     @foreach ($categories as $category)
                     <tr>
-                      <td></td>
-                      <td>{{$category->category_name}}</td>
-                      <td>
+                      <td align="center"></td>
+                      <td align="center">{{$category->category_name}}</td>
+                      <td align="center">
                         <div class="btn-group" role="group" aria-label="Basic example">
                           <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#category-edit-{{$category->id}}"><i class="fas fa-pencil-alt"></i></button>
                           @if ($category->id != 1 && $category->id != 2)
