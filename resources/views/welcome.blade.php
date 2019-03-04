@@ -18,12 +18,14 @@
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 landing-blogs-item">
           <div class="hovereffect">
-            <img class="img-responsive" src="{{$trending_blog->media->media_location}}" alt="">
-            <div class="overlay">
-               <h2>{{$trending_blog->title}}</h2>
-               <br>
-               <a class="info read-more-btn" href="{{route('view.blog', $trending_blog->id)}}">Read More</a>
-            </div>
+            <a href="{{route('view.blog', $trending_blog->id)}}">
+              <img class="img-responsive" src="{{$trending_blog->media->media_location}}" alt="">
+              <div class="overlay">
+                 <h2>{{$trending_blog->title}}</h2>
+                 <br>
+                 <a class="info read-more-btn" href="{{route('view.blog', $trending_blog->id)}}">Read More</a>
+              </div>
+            </a>
           </div>
         </div> <!--end col -->
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -31,18 +33,20 @@
             @foreach ($second_trending_blogs as $tblog)
               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 landing-blogs-item">
                 <div class="hovereffect">
-                  <img class="img-responsive" src="{{$tblog->media->media_location}}" alt="">
-                  <div class="overlay">
-                     <h2>
-                       @if (strlen($tblog->title) >= 30)
-                         {{substr($tblog->title, 0, 30) . "..."}}
-                       @else
-                         {{$tblog->title}}
-                       @endif
-                     </h2>
-                     <br>
-                     <a class="info read-more-btn" href="{{route('view.blog', $tblog->id)}}">Read More</a>
-                  </div>
+                  <a href="{{route('view.blog', $tblog->id)}}">
+                    <img class="img-responsive" src="{{$tblog->media->media_location}}" alt="">
+                    <div class="overlay">
+                       <h2>
+                         @if (strlen($tblog->title) >= 30)
+                           {{substr($tblog->title, 0, 30) . "..."}}
+                         @else
+                           {{$tblog->title}}
+                         @endif
+                       </h2>
+                       <br>
+                       <a class="info read-more-btn" href="{{route('view.blog', $tblog->id)}}">Read More</a>
+                    </div>
+                  </a>
                 </div>
               </div>
             @endforeach
