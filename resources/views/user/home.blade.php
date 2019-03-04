@@ -19,7 +19,14 @@
       <div class="row">
         <div class="col-sm-12 col-md-5 col-lg-5">
 
-          <div class="panel panel-default">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              Profile
+              <div class="float-right">
+                <a href="#" class="edit-profile-link" data-toggle="modal" data-target="#edit-profile-{{$user->id}}"> <i class="fas fa-edit"></i> Edit Profile</a>
+                @include('modals.user-edit-profile')
+              </div>
+            </div>
             <div class="panel-body">
               <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-4">

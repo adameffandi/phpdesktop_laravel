@@ -48,6 +48,11 @@ class UserController extends Controller
 
    public function editProfile(Request $request, $id)
    {
+     $user = User::find($id);
+     $user->name = $request->name;
+     $user->email = $request->email;
+     $user->save();
+
      return redirect()->route('user');
    }
 

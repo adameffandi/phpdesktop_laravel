@@ -29,10 +29,10 @@
 <body>
     <div id="admin-layout">
       @include('dashboard-layouts.layout-1.top-navbar')
-      @include('dashboard-layouts.layout-1.sidebar')
+      {{-- @include('dashboard-layouts.layout-1.sidebar') --}}
 
       <div id="main">
-        <span id="burger-icon" onclick="openNav()">&#9776;</span>
+        {{-- <span id="burger-icon" onclick="openNav()">&#9776;</span> --}}
         @yield('content')
       </div>
 

@@ -29,6 +29,8 @@ Auth::routes();
 
 Route::group(["middleware" => "App\Http\Middleware\AdminMiddleware", 'prefix' => 'home'], function () {
   Route::get('/', 'HomeController@index')->name('home');
+  // ================================= profile =================================
+  Route::post('/profile/edit/{id}', 'HomeController@editProfile')->name('home.profile.edit');
   // ================================= user =================================
   Route::get('/user', 'HomeController@getUser')->name('home.user');
   Route::post('/user/create', 'HomeController@createUser')->name('home.user.create');
@@ -57,7 +59,7 @@ Route::group(["middleware" => "App\Http\Middleware\AdminMiddleware", 'prefix' =>
 
 Route::group(['prefix' => 'user'], function () {
   Route::get('/', 'UserController@index')->name('user');
-  Route::post('/profile/edit/{id}', 'UserController@editUser')->name('user.profile.edit');
+  Route::post('/profile/edit/{id}', 'UserController@editProfile')->name('user.profile.edit');
   Route::get('/blog', 'UserController@getBlog')->name('user.blog');
   Route::post('/blog/create', 'UserController@createBlog')->name('user.blog.create');
   Route::post('/blog/edit/{id}', 'UserController@editBlog')->name('user.blog.edit');

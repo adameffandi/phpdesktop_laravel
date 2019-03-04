@@ -48,6 +48,16 @@ class HomeController extends Controller
         return view('admin.home', compact('user', 'your_blogs', 'total_blogs_posted', 'total_blogs_active', 'total_user_active', 'total_user_blocked'));
     }
 
+    public function editProfile(Request $request, $id)
+    {
+      $user = User::find($id);
+      $user->name = $request->name;
+      $user->email = $request->email;
+      $user->save();
+      
+      return redirect()->route('home');
+    }
+
     public function getUser()
     {
         $users = User::all();

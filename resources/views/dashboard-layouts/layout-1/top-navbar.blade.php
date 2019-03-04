@@ -29,6 +29,14 @@
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
+                    @if (Auth::user()->role_id == 1)
+                      <li><a href="{{route('home')}}">Home</a></li>
+                      <li><a href="{{route('home.user')}}">Users</a></li>
+                      <li><a href="{{route('home.blog')}}">Blogs</a></li>
+                    @else
+                      <li><a href="{{route('user')}}">Home</a></li>
+                      <li><a href="{{route('user.blog')}}">My Blogs</a></li>
+                    @endif
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
