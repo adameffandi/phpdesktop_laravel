@@ -76,14 +76,17 @@
             </div> <!-- end main col-->
 
             <div class="col-sm-12 col-md-7 col-lg-7">
-              <div class="panel panel-default">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  Your Recent Blogs
+                </div>
                 <div class="panel-body">
-                  <div class="row">
+                  {{-- <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                       <h2>Your Recent Blogs</h2>
                       <hr>
                     </div>
-                  </div>
+                  </div> --}}
                   @foreach ($your_blogs as $blog)
                     <div class="row">
                       <div class="col-sm-12 col-md-4 col-lg-4">

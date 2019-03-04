@@ -68,7 +68,7 @@ body {
                           navbar shit here
   ==============================================================================*/
 .navbar-custom {
-  background-color: #333;
+  background-color: #d17c78;
   position: absolute;
   height: 100px;
 }
@@ -78,7 +78,7 @@ body {
 }
 
 .navbar-brand:hover {
-  color: #d17c78;
+  color: #444;
   transition: ease-in-out 0.3s;
 }
 
@@ -87,9 +87,21 @@ body {
 }
 
 .topnav a:hover {
-    color: #d17c78;
+    color: #444;
     /* border-bottom: 3px solid #d17c78; */
     transition: ease-in-out 0.3s;
+}
+
+.navbar-toggler-icon {
+  color: #fff !important;
+}
+
+.nav-link {
+  position: relative;
+  z-index: 100;
+  text-align: center;
+  width: 100%;
+  background-color: #d17c78;
 }
 
 /* ===================== welcome page shits here ================================*/
@@ -137,7 +149,9 @@ img {
 }
 
 .landing-blogs-item {
+  position: relative;
   margin-bottom: 10px;
+  z-index: 10;
 }
 
 /*============================== experiment ======================================*/
