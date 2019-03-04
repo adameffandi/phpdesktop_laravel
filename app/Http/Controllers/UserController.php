@@ -8,6 +8,7 @@ use Auth;
 use DB;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\UserPermission;
 use App\Models\Status;
 use App\Models\Blog;
 use App\Models\Category;
@@ -42,8 +43,9 @@ class UserController extends Controller
       $count_blogs_posted = count(Blog::where('user_id', $user_id)->where('status_id', 3)->get());
       $count_blogs_pending = count(Blog::where('user_id', $user_id)->where('status_id', 4)->get());
       $count_blogs_archived = count(Blog::where('user_id', $user_id)->where('status_id', 5)->get());
+      $user_permission = UserPermission::first();
 
-      return view('user.home', compact('user', 'your_blogs', 'count_blogs_posted', 'count_blogs_pending', 'count_blogs_archived'));
+      return view('user.home', compact('user', 'your_blogs', 'count_blogs_posted', 'count_blogs_pending', 'count_blogs_archived', 'user_permission'));
    }
 
    public function editProfile(Request $request, $id)
@@ -62,8 +64,9 @@ class UserController extends Controller
      $comments = Comment::all();
      $categories = Category::all();
      $contentstatuses = ContentStatus::all();
+     $user_permission = UserPermission::first();
 
-     return view('user.blog', compact('blogs', 'comments', 'categories', 'contentstatuses'));
+     return view('user.blog', compact('blogs', 'comments', 'categories', 'contentstatuses', 'user_permission'));
    }
 
    public function createBlog(Request $request)

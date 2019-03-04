@@ -23,8 +23,10 @@
             <div class="panel-heading">
               Profile
               <div class="float-right">
-                <a href="#" class="edit-profile-link" data-toggle="modal" data-target="#edit-profile-{{$user->id}}"> <i class="fas fa-edit"></i> Edit Profile</a>
-                @include('modals.user-edit-profile')
+                @if ($user_permission->edit_profile == true)
+                  <a href="#" class="edit-profile-link" data-toggle="modal" data-target="#edit-profile-{{$user->id}}"> <i class="fas fa-edit"></i> Edit Profile</a>
+                  @include('modals.user-edit-profile')
+                @endif
               </div>
             </div>
             <div class="panel-body">

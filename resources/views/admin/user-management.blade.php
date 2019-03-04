@@ -24,7 +24,7 @@
                 <a href="#user-management" aria-controls="user-management" role="tab" data-toggle="tab">User Management</a>
               </li>
               <li class="nav-item" role="presentation">
-                <a href="#user-statistic" aria-controls="user-statistic" role="tab" data-toggle="tab">Statistic</a>
+                <a href="#user-permission" aria-controls="user-permission" role="tab" data-toggle="tab">Permission</a>
               </li>
             </ul>
             <div class="tab-content">
@@ -61,19 +61,12 @@
                       </td>
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          {{-- <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#user-view-{{$user->id}}"><i class="fas fa-eye"></i></button> --}}
                           <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#user-edit-{{$user->id}}"><i class="fas fa-edit"></i></button>
                           <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#user-delete-{{$user->id}}"><i class="fas fa-times"></i></button>
                         </div>
 
-                        {{-- @include('modals.user-view') --}}
                         @include('modals.user-edit')
                         @include('modals.user-delete')
-                        {{-- <div class="btn-group" role="group" aria-label="Basic example">
-                          <button type="button" class="btn btn-primary btn-action" data-toggle="tooltip" data-placement="bottom" title="View"><i class="fas fa-eye"></i></button>
-                          <button type="button" class="btn btn-success btn-action" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fas fa-pencil-alt"></i></button>
-                          <button type="button" class="btn btn-danger btn-action" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-times"></i></button>
-                        </div> --}}
                       </td>
                     </tr>
                     @endforeach
@@ -81,10 +74,73 @@
                 </table>
               </div> <!-- end user-management tab pane -->
 
-              <div role="tab-panel" class="tab-pane" id="user-statistic">
-                <h3 class="card-title">Dunno Yet</h3>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+              <div role="tab-panel" class="tab-pane" id="user-permission">
+                <h3 class="card-title">Permission Management</h3>
+                <form class="" action="{{route('home.user.permission')}}" method="post">
+                  {{ csrf_field() }}
+
+                  <table class="table table-responsive">
+                    <tr>
+                      <th>No</th>
+                      <th>Functionality</th>
+                      <td text-align="center">Permission</td>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <th>Edit Profile</th>
+                      <td>
+                        @if ($user_permission->edit_profile == 1)
+                          <label class="switch">
+                            <input type="checkbox" name="edit_profile" checked>
+                            <span class="slider"></span>
+                          </label>
+                        @else
+                          <label class="switch">
+                            <input type="checkbox" name="edit_profile">
+                            <span class="slider"></span>
+                          </label>
+                        @endif
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <th>Create Blog</th>
+                      <td>
+                        @if ($user_permission->create_blog == 1)
+                          <label class="switch">
+                            <input type="checkbox" name="create_blog" checked>
+                            <span class="slider"></span>
+                          </label>
+                        @else
+                          <label class="switch">
+                            <input type="checkbox" name="create_blog">
+                            <span class="slider"></span>
+                          </label>
+                        @endif
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <th>Edit Blog</th>
+                      <td>
+                        @if ($user_permission->edit_blog == 1)
+                          <label class="switch">
+                            <input type="checkbox" name="edit_blog" checked>
+                            <span class="slider"></span>
+                          </label>
+                        @else
+                          <label class="switch">
+                            <input type="checkbox" name="edit_blog">
+                            <span class="slider"></span>
+                          </label>
+                        @endif
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="form-group">
+                    <button type="submit" name="button" class="btn btn-success">Save Changes</button>
+                  </div>
+                </form>
               </div> <!-- end dunno tab pane -->
 
             </div>

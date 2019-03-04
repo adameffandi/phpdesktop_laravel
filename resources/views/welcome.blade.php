@@ -33,7 +33,13 @@
                 <div class="hovereffect">
                   <img class="img-responsive" src="{{$tblog->media->media_location}}" alt="">
                   <div class="overlay">
-                     <h2>{{$tblog->title}}</h2>
+                     <h2>
+                       @if (strlen($tblog->title) >= 30)
+                         {{substr($tblog->title, 0, 30) . "..."}}
+                       @else
+                         {{$tblog->title}}
+                       @endif
+                     </h2>
                      <br>
                      <a class="info read-more-btn" href="{{route('view.blog', $tblog->id)}}">Read More</a>
                   </div>
@@ -62,12 +68,24 @@
                   <a href="{{route('view.blog.with.category', $blog->category->id)}}" class="link-text">
                     <p class="category-text"><b> // {{$blog->category->category_name}} </b></p>
                   </a>
-                  <h4><a href="{{route('view.blog', $blog->id)}}" class="link-text">{{$blog->title}}</a></h4>
+                  <h4><a href="{{route('view.blog', $blog->id)}}" class="link-text">
+                    @if (strlen($blog->title) >= 27)
+                      {{substr($blog->title, 0, 27) . "..."}}
+                    @else
+                      {{$blog->title}}
+                    @endif
+                    {{-- {{$blog->title}} --}}
+                  </a></h4>
                   <hr>
                   <p class="author-link">By <a href="{{route('view.author', $blog->user_id)}}">{{$blog->user->name}}</a> </p>
                   <p class="grey-text"> <i class="fa fa-calendar"></i> <i>{{date_format($blog->created_at, 'F j, Y')}}</i></p>
                   <p>
-                    {{substr($blog->content, 0, 150) . "..."}}
+
+                    @if (strlen($blog->content) >= 150)
+                      {{substr($blog->content, 0, 150) . " ..."}}
+                    @else
+                      {{$blog->content}}
+                    @endif
                   </p>
                   <a class="read-more-btn" href="{{route('view.blog', $blog->id)}}">Read More <i class="fa fa-arrow-right"></i></a>
                 </div>

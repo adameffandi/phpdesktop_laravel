@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(HomepageTagSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(MediaSeeder::class);
+        $this->call(UserPermissionSeeder::class);
         // for testing
         $this->call(UserTableSeeder::class);
         $this->call(BlogSeeder::class);

@@ -31,11 +31,12 @@ Route::group(["middleware" => "App\Http\Middleware\AdminMiddleware", 'prefix' =>
   Route::get('/', 'HomeController@index')->name('home');
   // ================================= profile =================================
   Route::post('/profile/edit/{id}', 'HomeController@editProfile')->name('home.profile.edit');
-  // ================================= user =================================
+  // ================================= user & permission =================================
   Route::get('/user', 'HomeController@getUser')->name('home.user');
   Route::post('/user/create', 'HomeController@createUser')->name('home.user.create');
   Route::post('/user/edit/{id}', 'HomeController@editUser')->name('home.user.edit');
   Route::post('/user/delete/{id}', 'HomeController@deleteUser')->name('home.user.delete');
+  Route::post('/user/permission', 'HomeController@setUserPermission')->name('home.user.permission');
   // ================================= blog =================================
   Route::get('/blog', 'HomeController@getBlog')->name('home.blog'); // for blog and category
   Route::post('/blog/create', 'HomeController@createBlog')->name('home.blog.create');

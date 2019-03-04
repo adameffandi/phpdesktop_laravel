@@ -19,10 +19,12 @@
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <h2>My Blogs</h2>
-          <button type="button" class="dashboard-btn" data-toggle="modal" data-target="#blog-user-create">
-            Create Blog
-          </button>
-          @include('modals.blog-user-create')
+          @if ($user_permission->create_blog == true)
+            <button type="button" class="dashboard-btn" data-toggle="modal" data-target="#blog-user-create">
+              Create Blog
+            </button>
+            @include('modals.blog-user-create')
+          @endif
         </div>
       </div><!-- end row -->
 
@@ -97,7 +99,9 @@
                   <td align="center" style="width: 150px;">
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-info btn-action" data-toggle="modal" data-target="#blog-view-{{$blog->id}}"><i class="fas fa-eye"></i></button>
-                      <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#blog-user-edit-{{$blog->id}}"><i class="fas fa-edit"></i></button>
+                      @if ($user_permission->edit_blog == true)
+                        <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#blog-user-edit-{{$blog->id}}"><i class="fas fa-edit"></i></button>
+                      @endif
                       {{-- <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#blog-user-delete-{{$blog->id}}"><i class="fas fa-times"></i></button> --}}
                     </div>
 

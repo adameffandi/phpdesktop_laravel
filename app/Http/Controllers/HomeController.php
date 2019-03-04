@@ -9,6 +9,7 @@ use Auth;
 use DB;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\UserPermission;
 use App\Models\Status;
 use App\Models\Blog;
 use App\Models\Category;
@@ -54,7 +55,7 @@ class HomeController extends Controller
       $user->name = $request->name;
       $user->email = $request->email;
       $user->save();
-      
+
       return redirect()->route('home');
     }
 
@@ -63,7 +64,9 @@ class HomeController extends Controller
         $users = User::all();
         $roles = Role::all();
         $statuses = Status::all();
-        return view('admin.user-management', compact('users', 'roles', 'statuses'));
+        $user_permission = UserPermission::first();
+
+        return view('admin.user-management', compact('users', 'roles', 'statuses', 'user_permission'));
     }
 
     public function createUser(Request $request)
@@ -125,6 +128,17 @@ class HomeController extends Controller
         Session::flash('fail', 'User could not be deleted');
       }
       return redirect()->route('home.user');
+    }
+
+    public function setUserPermission(Request $request)
+    {
+      $user_permission = UserPermission::first();
+      isset($request->edit_profile)? $user_permission->edit_profile = true : $user_permission->edit_profile = false;
+      isset($request->create_blog)? $user_permission->create_blog = true : $user_permission->create_blog = false;
+      isset($request->edit_blog)? $user_permission->edit_blog = true : $user_permission->edit_blog = false;
+      $user_permission->save();
+
+      return redirect()->route('home.user')->withInput(['tabMenu'=>'dashboardTabMenu', 'tab'=>'user-permission']);
     }
 
     public function getBlog()
