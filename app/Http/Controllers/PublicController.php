@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Hash;
 use Session;
+use DB;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Blog;
