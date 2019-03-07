@@ -38,7 +38,15 @@ class MediaController extends Controller
 
 
         $media = new Media;
-        $media->media_title = 'Category-'.$request->category;
+        if ($saveFor == 'blog') {
+          $media->media_title = 'Blog-'.$request->blog_title;
+        } elseif ($saveFor == 'category') {
+          $media->media_title = 'Category-'.$request->category;
+        } elseif ($saveFor == 'profile_picture') {
+          $media->media_title = 'ProfilePicture-'.$request->name;
+        } else {
+          $media->media_title = 'Img-'.$request->category;
+        }
         $media->media_location = $image_location_and_name;
         $media->media_type = $image->getClientOriginalExtension();
         $media->uploader_id = Auth::id();
