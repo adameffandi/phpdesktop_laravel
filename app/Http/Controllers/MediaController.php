@@ -18,7 +18,7 @@ class MediaController extends Controller
         } elseif ($saveFor == 'category') {
           $name = $this->cleanString($request->category).'-'.date('Ymd_His').'.'.$image->getClientOriginalExtension();
         } elseif ($saveFor == 'profile_picture') {
-          $name = $this->cleanString($request->profile_picture).'-'.date('Ymd_His').'.'.$image->getClientOriginalExtension();
+          $name = $this->cleanString($request->name).'-'.date('Ymd_His').'.'.$image->getClientOriginalExtension();
         } else {
           $name = date('Ymd_His').'.'.$image->getClientOriginalExtension();
         }

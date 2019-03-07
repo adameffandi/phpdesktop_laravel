@@ -29,9 +29,9 @@
                   <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-4">
                       @if (isset($user->profile_picture_id))
-                        <img src="{{asset($user->profile_picture->media_location)}}" alt="" class="img-responsive author-profile-img">
+                        <img src="{{asset($user->profile_picture->media_location)}}" alt="" class="img-responsive">
                       @else
-                        <img src="{{asset('img/profile_pictures/user-placeholder.jpg')}}" alt="" class="img-responsive author-profile-img">
+                        <img src="{{asset('img/profile_pictures/user-placeholder.jpg')}}" alt="" class="img-responsive">
                       @endif
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-8">

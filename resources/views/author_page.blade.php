@@ -17,9 +17,9 @@
     <div class="row public-profile-section">
       <div class="col-sm-12 col-md-4 col-lg-2">
         @if (isset($user->profile_picture_id))
-          <img src="{{asset($user->profile_picture->media_location)}}" alt="" class="img-responsive author-profile-img">
+          <img src="{{asset($user->profile_picture->media_location)}}" alt="" class="img-responsive">
         @else
-          <img src="{{asset('img/profile_pictures/user-placeholder.jpg')}}" alt="" class="img-responsive author-profile-img">
+          <img src="{{asset('img/profile_pictures/user-placeholder.jpg')}}" alt="" class="img-responsive">
         @endif
       </div>
       <div class="col-sm-12 col-md-8 col-lg-10">
