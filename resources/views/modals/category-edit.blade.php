@@ -17,7 +17,7 @@
           </div>
           <div class="form-group">
             <label for="media">Background Image (used in landing page)</label>
-            <input type="file" class="form-control" name="media" required>
+            <input type="file" class="form-control" name="media" accept="image/*" required>
           </div>
         </div>
         <div class="modal-footer">

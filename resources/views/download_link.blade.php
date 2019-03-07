@@ -18,8 +18,8 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <h1 class="text-center">Download Links</h1>
         <div class="text-center"><br>
-          <a href="#" class="read-more-btn">PHPDesktop With Remote Database (MySQL)</a> <br><br><br>
-          <a href="https://cloud.amkde.com/index.php/s/5pzHSy9G5qQRjii" class="read-more-btn">PHPDesktop With Local Database (SQLite)</a>
+          <a href="#" class="read-more-btn" target="_blank">PHPDesktop With Remote Database (MySQL)</a> <br><br><br>
+          <a href="https://cloud.amkde.com/index.php/s/GyJKXnzYiXixd7o" class="read-more-btn" target="_blank">PHPDesktop With Local Database (SQLite)</a>
         </div>
       </div>
     </div>

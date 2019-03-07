@@ -51,9 +51,12 @@ class HomeController extends Controller
 
     public function editProfile(Request $request, $id)
     {
+      $media_id = app('App\Http\Controllers\MediaController')->saveImage($request, 'profile_picture');
+
       $user = User::find($id);
       $user->name = $request->name;
       $user->email = $request->email;
+      $user->profile_picture_id = $media_id;
       $user->save();
 
       return redirect()->route('home');

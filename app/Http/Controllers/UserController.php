@@ -50,9 +50,12 @@ class UserController extends Controller
 
    public function editProfile(Request $request, $id)
    {
+     $media_id = app('App\Http\Controllers\MediaController')->saveImage($request, 'profile_picture');
+
      $user = User::find($id);
      $user->name = $request->name;
      $user->email = $request->email;
+     $user->profile_picture_id = $media_id;
      $user->save();
 
      return redirect()->route('user');
@@ -97,7 +100,7 @@ class UserController extends Controller
          $blog->title = $request->blog_title;
          $blog->content = $request->blog_content;
          $blog->category_id = $request->blog_category;
-         $blog->homepage_tag_id = $request->blog_homepage_tag;
+         $blog->homepage_tag_id = 1;
          $blog->content_status_id = $request->blog_content_status;
          $blog->save();
        } else {
@@ -110,7 +113,7 @@ class UserController extends Controller
          $blog->content = $request->blog_content;
          $blog->media_id = $media_id;
          $blog->category_id = $request->blog_category;
-         $blog->homepage_tag_id = $request->blog_homepage_tag;
+         $blog->homepage_tag_id = 1;
          $blog->content_status_id = $request->blog_content_status;
          $blog->save();
        }

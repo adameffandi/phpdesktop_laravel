@@ -79,14 +79,11 @@
                           <button type="button" class="btn btn-info btn-action" data-toggle="modal" data-target="#blog-view-{{$blog->id}}"><i class="fas fa-eye"></i></button>
                           <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#blog-edit-{{$blog->id}}"><i class="fas fa-edit"></i></button>
                           <button type="button" class="btn btn-warning btn-action" data-toggle="modal" data-target="#blog-status-{{$blog->id}}"><i class="fas fa-cogs"></i></button>
-                          {{-- <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#blog-delete-{{$blog->id}}"><i class="fas fa-times"></i></button> --}}
                         </div>
 
                         @include('modals.blog-view')
                         @include('modals.blog-edit')
                         @include('modals.blog-status')
-
-                        {{-- @include('modals.blog-delete') --}}
                       </td>
                     </tr>
                     @endforeach

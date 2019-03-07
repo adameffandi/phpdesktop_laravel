@@ -19,6 +19,10 @@
             <label for="email">Email</label>
             <input type="email" class="form-control" name="email" value="{{$user->email}}" required>
           </div>
+          <div class="form-group">
+            <label for="media">Profile Picture</label>
+            <input type="file" class="form-control" name="media" accept="image/*">
+          </div>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-success">Save changes</button>

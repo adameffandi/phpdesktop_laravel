@@ -44,7 +44,7 @@ class PublicController extends Controller
     {
       $blog = Blog::find($id);
       $categories = Category::where('id', '!=', 1)->inRandomOrder()->take(5)->get();
-      $related_blogs = Blog::where('category_id', $blog->category_id)->inRandomOrder()->take(5)->get();
+      $related_blogs = Blog::where('category_id', $blog->category_id)->where('content_status_id', 1)->where('status_id', 3)->inRandomOrder()->take(5)->get();
 
       return view('blog_single', compact('blog', 'categories', 'related_blogs'));
     }
