@@ -13,7 +13,9 @@
         @endif
       </div>
     </div>
+  </div> <!-- end container -->
 
+  <div class="container-fluid">
     <div class="landing-blogs page-section">
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 landing-blogs-item">
@@ -54,8 +56,13 @@
         </div><!--end col -->
       </div> <!-- end row -->
     </div>
+  </div><!-- container -->
 
-    <div class="trending-blogs page-section">
+  {{-- <div class="container"> --}}
+    <div class="trending-blogs page-section" style="background-color: #cccccc;">
+      <div class="container">
+
+
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-8">
           <h2 class="page-section-title">Trending</h2>
@@ -144,18 +151,7 @@
 
         </div>
       </div>
-    </div>
-  </div> <!-- end container -->
-
-
-
-  {{-- <div class="latest-blogs page-section full-width-div">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h2 class="page-section-title-white text-center">Latest Blogs</h2>
-        </div>
       </div>
-    </div> <!--ed container -->
-  </div> --}}
+    </div>
+  {{-- </div> <!-- end container --> --}}
 @endsection
