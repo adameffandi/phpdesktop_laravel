@@ -46,7 +46,7 @@
               @foreach ($blogs as $blog)
                 <div class="col-lg-4 col-md-6 col-sm-12 all-blog-one-row">
                   <div class="all-blog-item">
-                    <a href="{{route('view.blog', $blog->id)}}" class="all-blog-link" target="_blank">
+                    <a href="{{route('view.blog', $blog->id)}}" class="all-blog-link">
                         <img src="{{asset($blog->media->media_location)}}" alt="" class="all-blog-img">
                         <div class="all-blog-summary">
                           <h4 class="all-blog-title">{{$blog->title}}</h4>

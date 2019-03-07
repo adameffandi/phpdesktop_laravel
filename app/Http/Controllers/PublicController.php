@@ -73,6 +73,11 @@ class PublicController extends Controller
       return view('author_page', compact('blogs', 'user', 'count_blog'));
     }
 
+    public function getDownloadLinks()
+    {
+      return view('download_link');
+    }
+
     public function userLogin(Request $request)
     {
       $userexist = User::where('email', $request->email)->first();

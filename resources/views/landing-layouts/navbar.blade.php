@@ -16,7 +16,7 @@
                 <a class="nav-link" href="{{route('view.category')}}">Categories</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://cloud.amkde.com/index.php/s/M97i6Di5pbFfkFZ" target="_blank">Download</a>
+              <a class="nav-link" href="{{route('view.download.links')}}">Download</a>
             </li>
 						@if (Auth::check())
 							<li class="nav-item">
