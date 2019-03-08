@@ -59,13 +59,14 @@
   </div><!-- container -->
 
   {{-- <div class="container"> --}}
-    <div class="trending-blogs page-section" style="background-color: #cccccc;">
+    <div class="trending-blogs page-section">
       <div class="container">
 
 
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-8">
-          <h2 class="page-section-title">Trending</h2>
+          <h2 class="page-section-title text-center">Trending</h2>
+          <hr class="hr-thicc">
           <br>
           @foreach ($blogs as $blog)
             @if ($blog->homepage_tag_id == 2)
@@ -87,7 +88,7 @@
                     @endif
                     {{-- {{$blog->title}} --}}
                   </a></h4>
-                  <hr>
+                  {{-- <hr> --}}<hr class="hr-thicc" align="left" >
                   <p class="author-link">By <a href="{{route('view.author', $blog->user_id)}}">{{$blog->user->name}}</a> </p>
                   <p class="grey-text"> <i class="fa fa-calendar"></i> <i>{{date_format($blog->created_at, 'F j, Y')}}</i></p>
                   <p>
@@ -98,10 +99,10 @@
                       {{$blog->content}}
                     @endif
                   </p>
-                  <a class="read-more-btn" href="{{route('view.blog', $blog->id)}}">Read More <i class="fa fa-arrow-right"></i></a>
+                  <a class="read-more-btn-2" href="{{route('view.blog', $blog->id)}}">Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
               </div>
-              <br>
+              {{-- <br> --}}
             @endif
           @endforeach
         </div>
@@ -109,7 +110,8 @@
         <div class="col-sm-12 col-md-12 col-lg-4">
           <div class="row sub-section">
             <div class="col-sm-12 col-md-12 col-lg-12">
-              <h2 class="page-section-title">Most Popular</h2>
+              <h2 class="page-section-title text-center">Most Popular</h2>
+              <hr class="hr-thicc">
               <br>
               @foreach ($blogs as $blog)
                 @if ($blog->homepage_tag_id == 3)
@@ -132,7 +134,8 @@
 
           <div class="row sub-section">
             <div class="col-sm-12 col-md-12 col-lg-12">
-              <h2 class="page-section-title">Categories</h2>
+              <h2 class="page-section-title text-center">Categories</h2>
+              <hr class="hr-thicc">
               <br>
               @foreach ($categories as $category)
                 <a href="{{route('view.blog.with.category', $category->id)}}">

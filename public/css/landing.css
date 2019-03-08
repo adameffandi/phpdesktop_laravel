@@ -19,7 +19,7 @@ body {
 
 .link-text:hover {
   text-decoration: none;
-  color: #ff7979;
+  color: #FF6642;
   transition: ease-in-out 0.3s;
 }
 
@@ -39,36 +39,46 @@ body {
 .read-more-btn {
   padding: 5px 15px 5px 15px;
   background-color: transparent;
-  color: #ff7979;
+  color: #FFCA42;
   border-radius: 200px;
-  border: 2px dotted #ff7979;
+  border: 2px dotted #FFCA42;
 }
 
 .read-more-btn:hover {
-  background-color: #ff7979;
+  background-color: #FFCA42;
   color: #fff;
   transition: ease-in-out 0.3s;
 }
 
-/* .read-more-btn-2 {
+.read-more-btn-2 {
   padding: 5px 15px 5px 15px;
   background-color: transparent;
-  color: #ff7979;
+  color: #FF6642;
   border-radius: 200px;
-  border: 2px dotted #ff7979;
+  border: 2px dotted #FF6642;
 }
 
 .read-more-btn-2:hover {
-  background-color: #ff7979;
+  background-color: #FF6642;
   color: #fff;
   transition: ease-in-out 0.3s;
-} */
+}
+
+.hr-thicc {
+  width: 50px;
+  border: 5px solid #3a3a3a;
+}
+
+.hr-thicc-2 {
+  width: 30px;
+  border: 3px solid #3a3a3a;
+}
 
 /*=============================================================================
                           navbar shit here
   ==============================================================================*/
 .navbar-custom {
-  background-color: #d17c78;
+  background-color: #42b0e2;
   position: absolute;
   height: 100px;
 }
@@ -101,7 +111,7 @@ body {
   z-index: 100;
   text-align: center;
   width: 100%;
-  background-color: #d17c78;
+  background-color: #42b0e2;
 }
 
 /* ===================== welcome page shits here ================================*/
@@ -113,7 +123,9 @@ body {
 }
 
 .sub-section {
+  padding: 10px 0px 10px 0px;
   margin: 20px 0px 20px 0px;
+  background-color: #fff;
 }
 
 .page-section-title-white {
@@ -140,7 +152,7 @@ img {
   ==============================================================================*/
 
 .author-link a{
-  color: #ff7979;
+  color: #FF6642;
   text-decoration: none;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -245,11 +257,31 @@ img {
 }
 
 /*=============================================================================
+                          trending blogs Section
+  ==============================================================================*/
+
+  .trending-blogs {
+    /* background-color: #42B2E2; */
+    background-color: #efefef;
+    padding: 100px 0px 50px 0px;
+    margin-bottom: 0px;
+  }
+
+  .trending-blogs {
+    /* color: white; */
+  }
+
+  .trending-blogs-item {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+/*=============================================================================
                           Landing category Section
   ==============================================================================*/
 
 .category-text {
-  color: #ff7979;
+  color: #FF6642;
   padding-top: 0px;
   padding-bottom: 0px;
   margin-top: 2px;
@@ -341,7 +373,7 @@ img {
 }
 
 .all-blog-link .all-blog-title {
-  color: #ff7979;
+  color: #FF6642;
 }
 
 .all-blog-link p{
@@ -381,7 +413,7 @@ img {
 }
 
 .single-blog-info-sec a{
-  color: #ff7979;
+  color: #FF6642;
 }
 
 .single-blog-info-sec a:hover{
