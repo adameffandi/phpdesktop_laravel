@@ -25,7 +25,7 @@
               <div class="overlay">
                  <h2>{{$trending_blog->title}}</h2>
                  <br>
-                 <a class="info read-more-btn" href="{{route('view.blog', $trending_blog->id)}}">Read More</a>
+                 <a class="info read-more-btn-2" href="{{route('view.blog', $trending_blog->id)}}">Read More</a>
               </div>
             </a>
           </div>
@@ -46,7 +46,7 @@
                          @endif
                        </h2>
                        <br>
-                       <a class="info read-more-btn" href="{{route('view.blog', $tblog->id)}}">Read More</a>
+                       <a class="info read-more-btn-2" href="{{route('view.blog', $tblog->id)}}">Read More</a>
                     </div>
                   </a>
                 </div>

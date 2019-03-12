@@ -106,7 +106,7 @@ class HomeController extends Controller
       $user->email = $request->email;
       $user->password = bcrypt($request->password);
       $user->role_id = $request->role;
-      $user->status_id = $request->status;
+      $user->status_id = 1;
       $user->save();
 
       Session::flash('success', 'User successfully created!');

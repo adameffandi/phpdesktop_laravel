@@ -1,5 +1,6 @@
 body {
   font-family: "Lato", sans-serif;
+  background-color: #ddd;
 }
 
 #main {
@@ -86,6 +87,29 @@ table thead th {
   background-color: #ff7979;
   color: #fff;
   transition: ease-in-out 0.3s;
+}
+
+/*=============================================================================
+                          custom navbar Section
+==============================================================================*/
+
+.navbar-custom{
+  background-color: #ff7979;
+  color: #fff;
+}
+
+.navbar-custom a {
+  color: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+.nav-item:hover>a {
+  color: #ff7979;
+}
+
+.navbar-toggle {
+  border: 1px solid #fff;
+  padding: 5px 10px 5px 10px;
 }
 
 /*=============================================================================

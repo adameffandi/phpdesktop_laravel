@@ -35,14 +35,14 @@
                 @endforeach
             </select>
           </div>
-          <div class="form-group">
+          {{-- <div class="form-group">
             <label for="status">Status</label>
             <select class="form-control" name="status">
                 @foreach ($statuses as $status)
                   <option value="{{$status->id}}">{{$status->status_name}}</option>
                 @endforeach
             </select>
-          </div>
+          </div> --}}
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-success">Save changes</button>

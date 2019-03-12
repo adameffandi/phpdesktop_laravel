@@ -61,7 +61,7 @@
           </div><!-- end tab panel -->
 
           <div role="tab-panel" class="tab-pane" id="user-blog-table">
-            <table class="table table-responsive" id="blogMgtTable">
+            <table class="table table-responsive  table-striped table-hover table-bordered" id="blogMgtTable">
               <thead>
                 <th>No.</th>
                 <th>Title</th>

@@ -40,7 +40,9 @@
               </optgroup>
               <optgroup label="Options">
                 @foreach ($statuses as $status)
-                  <option value="{{$status->id}}">{{$status->status_name}}</option>
+                  @if ($status->id == 1 || $status->id == 2)
+                    <option value="{{$status->id}}">{{$status->status_name}}</option>
+                  @endif
                 @endforeach
               </optgroup>
             </select>

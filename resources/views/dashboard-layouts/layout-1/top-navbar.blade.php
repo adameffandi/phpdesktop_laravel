@@ -1,13 +1,14 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-custom">
     <div class="container">
         <div class="navbar-header">
 
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
+                <i class="fas fa-bars bar-icon"></i>
+                {{-- <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> --}}
             </button>
 
             <!-- Branding Image -->
@@ -26,24 +27,24 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li class="nav-item"><a href="{{ url('/login') }}">Login</a></li>
+                    <li class="nav-item"><a href="{{ url('/register') }}">Register</a></li>
                 @else
                     @if (Auth::user()->role_id == 1)
-                      <li><a href="{{route('home')}}">Home</a></li>
-                      <li><a href="{{route('home.user')}}">Users</a></li>
-                      <li><a href="{{route('home.blog')}}">Blogs</a></li>
+                      <li class="nav-item"><a href="{{route('home')}}">Home</a></li>
+                      <li class="nav-item"><a href="{{route('home.user')}}">Users</a></li>
+                      <li class="nav-item"><a href="{{route('home.blog')}}">Blogs</a></li>
                     @else
-                      <li><a href="{{route('user')}}">Home</a></li>
-                      <li><a href="{{route('user.blog')}}">My Blogs</a></li>
+                      <li class="nav-item"><a href="{{route('user')}}">Home</a></li>
+                      <li class="nav-item"><a href="{{route('user.blog')}}">My Blogs</a></li>
                     @endif
-                    <li class="dropdown">
+                    <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li>
+                            <li class="nav-item">
                                 <a href="{{ url('/logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

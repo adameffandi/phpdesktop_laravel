@@ -19,7 +19,7 @@ body {
 
 .link-text:hover {
   text-decoration: none;
-  color: #FF6642;
+  color: #ff7979;
   transition: ease-in-out 0.3s;
 }
 
@@ -53,13 +53,13 @@ body {
 .read-more-btn-2 {
   padding: 5px 15px 5px 15px;
   background-color: transparent;
-  color: #FF6642;
+  color: #ff7979;
   border-radius: 200px;
-  border: 2px dotted #FF6642;
+  border: 2px dotted #ff7979;
 }
 
 .read-more-btn-2:hover {
-  background-color: #FF6642;
+  background-color: #ff7979;
   color: #fff;
   transition: ease-in-out 0.3s;
 }
@@ -78,7 +78,7 @@ body {
                           navbar shit here
   ==============================================================================*/
 .navbar-custom {
-  background-color: #42b0e2;
+  background-color: #ff7979;
   position: absolute;
   height: 100px;
 }
@@ -111,7 +111,7 @@ body {
   z-index: 100;
   text-align: center;
   width: 100%;
-  background-color: #42b0e2;
+  background-color: #ff7979;
 }
 
 /* ===================== welcome page shits here ================================*/
@@ -152,7 +152,7 @@ img {
   ==============================================================================*/
 
 .author-link a{
-  color: #FF6642;
+  color: #ff7979;
   text-decoration: none;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -281,7 +281,7 @@ img {
   ==============================================================================*/
 
 .category-text {
-  color: #FF6642;
+  color: #ff7979;
   padding-top: 0px;
   padding-bottom: 0px;
   margin-top: 2px;
@@ -373,7 +373,7 @@ img {
 }
 
 .all-blog-link .all-blog-title {
-  color: #FF6642;
+  color: #ff7979;
 }
 
 .all-blog-link p{
@@ -413,7 +413,7 @@ img {
 }
 
 .single-blog-info-sec a{
-  color: #FF6642;
+  color: #ff7979;
 }
 
 .single-blog-info-sec a:hover{

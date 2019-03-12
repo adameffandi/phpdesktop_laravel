@@ -35,7 +35,7 @@
                 </button>
                 @include('modals.blog-create')
 
-                <table class="table table-responsive" id="blogMgtTable">
+                <table class="table table-responsive table-striped table-hover table-bordered" id="blogMgtTable">
                   <thead>
                     <th>No.</th>
                     <th>Title</th>
@@ -98,7 +98,7 @@
                 </button>
                 @include('modals.category-create')
 
-                <table class="table table-responsive" id="categoryMgtTable">
+                <table class="table table-responsive  table-striped table-hover table-bordered" id="categoryMgtTable">
                   <thead>
                     <th>No.</th>
                     <th>Category</th>

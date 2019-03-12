@@ -31,12 +31,12 @@
 
               <div role="tab-panel" class="tab-pane active" id="user-management">
                 <h3 class="card-title">User Management</h3>
-                <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#user-create">
+                <button type="button" class="dashboard-btn" data-toggle="modal" data-target="#user-create">
                   Create User
                 </button>
                 @include('modals.user-create')
 
-                <table class="table table-responsive" id="userMgtTable">
+                <table class="table table-responsive  table-striped table-hover table-bordered" id="userMgtTable">
                   <thead>
                     <th>No.</th>
                     <th>Name</th>
@@ -62,11 +62,11 @@
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
                           <button type="button" class="btn btn-primary btn-action" data-toggle="modal" data-target="#user-edit-{{$user->id}}"><i class="fas fa-edit"></i></button>
-                          <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#user-delete-{{$user->id}}"><i class="fas fa-times"></i></button>
+                          {{-- <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#user-delete-{{$user->id}}"><i class="fas fa-times"></i></button> --}}
                         </div>
 
                         @include('modals.user-edit')
-                        @include('modals.user-delete')
+                        {{-- @include('modals.user-delete') --}}
                       </td>
                     </tr>
                     @endforeach
@@ -79,7 +79,7 @@
                 <form class="" action="{{route('home.user.permission')}}" method="post">
                   {{ csrf_field() }}
 
-                  <table class="table table-responsive">
+                  <table class="table table-responsive  table-striped table-hover table-bordered">
                     <tr>
                       <th>No</th>
                       <th>Functionality</th>
@@ -151,4 +151,11 @@
 
     </div><!-- end container -->
   </div><!-- end content body -->
+
+  {{-- <script type="text/javascript">
+    $(document).ready( function () {
+      // $('#userMgtTable').DataTable();
+      console.log('keluar la celaka');
+    } );
+  </script> --}}
 @endsection
